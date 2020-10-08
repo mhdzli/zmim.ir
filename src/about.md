@@ -16,5 +16,5 @@ comments: false
 
 **اگر نیاز بود که با من تماس بگیرید: ✨**
 
-- [ایمیل من]({{ site.author.email }})
+- <a class="footer item" href="mailto:{{ site.email }}">ایمیل من</a>
 - [آدرس گیتهاب](github.com/{{ site.author.github }})
