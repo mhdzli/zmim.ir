@@ -39,6 +39,9 @@ fb_appid:
 collections:
   posts:
     output: true
+  wiki:
+    output: true
+    permalink: /wiki/:title/
 
 # Markdown settings
 markdown: kramdown

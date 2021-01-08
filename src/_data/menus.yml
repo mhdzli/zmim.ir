@@ -10,6 +10,10 @@
   url: /tags/
   external: false
 
+- title: ویکی
+  url: /wiki/
+  external: false
+
 - title: درباره
   url: /about/
   external: false # set true if you using external link, see below
