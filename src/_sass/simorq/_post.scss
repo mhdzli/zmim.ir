@@ -156,8 +156,7 @@
 
       &::before {
         content: "#";
-        position: absolute;
-        left: -3px;
+        position: relative;
         width: 1em;
         font-weight: $bold-weight;
       }
