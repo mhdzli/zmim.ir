@@ -85,6 +85,11 @@ layout: compress
               {% assign date_format = site.minima.date_format | default: "%d %b، %Y" %}{{ page.date | jdate: date_format }}
       </small>
     {% endif %}
+
+    {% if page.mastodon %}
+      {% include mastodon.html %}
+    {% endif %}
+
     {% if page.next or page.previous %}
       {% include navigation.html %}
     {% endif %}

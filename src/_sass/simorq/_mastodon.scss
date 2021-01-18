@@ -1,0 +1,19 @@
+.mastodon-comment {
+  background-color: #303030;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 1rem;
+  display: flex;
+  .author {
+    padding-top: 0;
+    display: flex;
+    margin: 0;
+  }
+  .content{
+    flex-grow: 2;
+    margin-right: 1rem;
+    .date{
+      margin-right: auto;
+    }
+  }
+}
