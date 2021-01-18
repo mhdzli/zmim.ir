@@ -4,6 +4,10 @@ date: 2020-11-03 08:10:47 +03:30
 modified:
 tags: [unix/linux, foss, پروژه‌های من ]
 description: ماهور یک افزونه برای افزودن ستون تاریخ خورشیدی به برنامه مدیریت ایمیل محبوب Thunderbird است.
+mastodon:
+  host: mas.to
+  username: mz
+  id: 105148912382290635
 ---
 
 
