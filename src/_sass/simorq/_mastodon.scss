@@ -1,9 +1,17 @@
 .mastodon-comment {
-  background-color: #303030;
+  background-color: #c6f0e4;
   border-radius: 10px;
   padding: 15px;
   margin-bottom: 1rem;
   display: flex;
+  .article-content {
+    .button {
+      padding: 1rem;
+      border-radius: 4px;
+      border-width: 0;
+      color: #c6f0e4
+    }
+  }
   .author {
     padding-top: 0;
     display: flex;

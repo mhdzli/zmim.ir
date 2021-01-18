@@ -244,4 +244,15 @@ body[data-theme="dark"] {
       }
     }
   }
+  .mastodon-comment {
+    background-color: #303030;
+    .article-content {
+      a {
+        color: #ff5277;
+        }
+      .button {
+        color: #303030
+      }
+    }
+  }
 }
