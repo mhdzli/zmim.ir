@@ -110,6 +110,25 @@ mastodon:
 {% endhighlight %}
 </div>
 
+و در `frontmatter` باید `mastodon` با این ساختار افزوده شود:
+
+<div class="code-block">
+{% highlight yaml %}
+{% raw %}
+mastodon:
+  host: mas.to
+  username: mz
+  id: 105582586560918183
+{% endraw %}
+{% endhighlight %}
+</div>
+
+که باید این موارد در آن مشخص گردد:
+
+- host: آدرس سرور مستادون
+- username: نام کاربری در مستادون
+- id: شماره یکتای بوق مربوط به پست
+
 در پایان هم برای نمایش بهتر دیدگاه‌ها از [این چند خط `CSS`](https://github.com/mhdzli/zmim.ir/commit/78e351e5f809ead9eb4a77021026c5364c6e2081) استفاده کردم.
 
 اینجا می‌توانید نتیجه نهایی را آزمایش کنید:
