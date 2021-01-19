@@ -67,6 +67,12 @@ body[data-theme="dark"] {
     text-shadow: 0 1px 0 $dark-black;
   }
 
+  .button,
+  button {
+    color: $dark-text-base-color;
+    background-color: $dark-box;
+  }
+
   // horizontal rule
   hr {
     border-color: $dark-light;

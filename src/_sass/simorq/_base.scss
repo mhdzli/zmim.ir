@@ -134,6 +134,15 @@ figcaption {
   text-align: center;
 }
 
+.button,
+button {
+  padding: 1rem;
+  border-radius: 10px;
+  border-width: 0;
+  color: $text-base-color;
+  background-color: $box;
+}
+
 // List
 ul {
   list-style: none;
