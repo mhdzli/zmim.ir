@@ -31,7 +31,7 @@ mastodon:
 
 
 <div class="code-block">
-{% highlight javascript %}
+{% highlight html %}
 {% raw %}
 <div class="page-content">
   <h2>دیدگاه‌ها</h2>
@@ -49,7 +49,6 @@ mastodon:
            .replace(/"/g, "&quot;")
            .replace(/'/g, "&#039;");
    }
-
     document.getElementById("load-comment").addEventListener("click", function() {
       document.getElementById("load-comment").innerHTML = "دریافت دیدگاه‌ها";
       fetch('https://{{ page.mastodon.host }}/api/v1/statuses/{{ page.mastodon.id }}/context')

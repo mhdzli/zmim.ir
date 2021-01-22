@@ -4,6 +4,9 @@
   padding: 15px;
   margin-bottom: 1rem;
   display: flex;
+  .avatar{
+    min-width: 60px;
+  }
   .author {
     padding-top: 0;
     display: flex;
