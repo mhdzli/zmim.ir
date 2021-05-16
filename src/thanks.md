@@ -1,13 +1,13 @@
 ---
-title: Acknowledgment
+title: سپاس
 permalink: /thanks/
 layout: page
-excerpt: Thanks to amazing people that i met, who help me out from follishness, connecting me with another good person, giving some advice when i'm at a bad things, pulling me from ordinary to be great.
+excerpt: سپاس از خانواده‌ام، دوستانم، شمایی که این متن رو می‌خونی و ...
 comments: false
 ---
 
-Thanks to amazing people that i met, who help me out from follishness, connecting me with another good person, giving some advice when i'm at a bad things, pulling me from ordinary to be great.
+پیش و بیش از همه سپاسگزار خانواده‌ام هستم و دوستانم و تمام آدمهایی که جایی در زندگی من همراهم بوده‌اند و به من کمک کرده‌اند تا سختی‌های راه را آسوده‌تر پشت سر بگذارم و آنها که اندک چیزی را که می‌دانم از آنها آموخته‌ام.
 
 <hr>
 
-Hopefully the knowledge that I got from them can be useful, and become a charity for them, Aamiin.
+امیدوارم این وبلاگ هر چند ناچیز بتواند کمک کوچکی برای شما باشد.
