@@ -60,7 +60,7 @@ sudo tic /tmp/emu.terminfo
 {% endhighlight %}
 </div>
 
-اگر این داده‌ها را ندارید می‌توانید با استفاده از ۱ `infocmp > foot.terminfo` آنها را ببینید و در یک فایل ذخیره کنید.
+اگر این داده‌ها را ندارید می‌توانید با استفاده از ‪`infocmp > foot.terminfo`‬ آنها را ببینید و در یک فایل ذخیره کنید.
 برای `foot` این داده‌ها به این صورت هستند:
 
 <div class="code-block">
