@@ -70,7 +70,7 @@ infocmp
 foot|foot terminal emulator,
 	am, bce, bw, ccc, hs, mir, msgr, npc, xenl,
 	colors#0x100, cols#80, it#8, lines#24, pairs#0x10000,
-	acsc=``aaffggiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz{{||}}~~,
+	acsc=``aaffggiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz{% raw %}{{||}}{% endraw %}~~,
 	bel=^G, blink=\E[5m, bold=\E[1m, cbt=\E[Z, civis=\E[?25l,
 	clear=\E[H\E[2J, cnorm=\E[?12l\E[?25h, cr=\r,
 	csr=\E[%i%p1%d;%p2%dr, cub=\E[%p1%dD, cub1=^H,
