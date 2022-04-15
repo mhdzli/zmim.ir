@@ -1,5 +1,5 @@
 ---
-title: Ffmpeg and SOX
+title: FFmpeg and SOX
 layout: wiki
 date: 2022-03-15 08:10:47 +03:30
 modified:
