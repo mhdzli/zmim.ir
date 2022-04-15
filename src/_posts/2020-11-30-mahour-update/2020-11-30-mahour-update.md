@@ -11,15 +11,15 @@ mastodon:
 ---
 
 
-در این پست تلاش می‌کنم به بهانه به روزرسانی افزونه [ماهور](https://addons.thunderbird.net/en-us/thunderbird/addon/mahour-iranian-date/) کمی درباره افزونه‌های فایرفاکس و چگونگی ساخت یک افزونه برای فایرفاکس بنویسم.
+در این پست تلاش می‌کنم به بهانه به روزرسانی افزونه [ماهور](https://addons.thunderbird.net/en-us/thunderbird/addon/mahour-iranian-date/){:target="_blank"}{:rel="noopener noreferrer"} کمی درباره افزونه‌های فایرفاکس و چگونگی ساخت یک افزونه برای فایرفاکس بنویسم.
 
 # افزونه‌های فایرفاکس
 
-تا پیش از نوامبر ۲۰۱۷ ابزارهای مختلفی برای ساخت یک افزونه فایرفاکس وجود داشت اما در نسخه‌های به روزتر برخی از آنها مانند ‫`overlay add-ons`‬، ‫`bootstrapped add-ons`‬، ‫`Add-on SDK`‬ و ... دیگر پشتیبانی نمی‌شوند. افزونه‌های جدید باید با استفاده از [WebExtensions API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions)ها ساخته شوند. اگر یک افزونه `Legacy` دارید برای سازگاری آن با نسخه های به روز فایرفاکس و ساخت `WebExtension` می‌توانید از [این راهنمای موزیلا](https://extensionworkshop.com/documentation/develop/porting-a-legacy-firefox-extension/) استفاده کنید.
+تا پیش از نوامبر ۲۰۱۷ ابزارهای مختلفی برای ساخت یک افزونه فایرفاکس وجود داشت اما در نسخه‌های به روزتر برخی از آنها مانند ‫`overlay add-ons`‬، ‫`bootstrapped add-ons`‬، ‫`Add-on SDK`‬ و ... دیگر پشتیبانی نمی‌شوند. افزونه‌های جدید باید با استفاده از [WebExtensions API](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions){:target="_blank"}{:rel="noopener noreferrer"}ها ساخته شوند. اگر یک افزونه `Legacy` دارید برای سازگاری آن با نسخه های به روز فایرفاکس و ساخت `WebExtension` می‌توانید از [این راهنمای موزیلا](https://extensionworkshop.com/documentation/develop/porting-a-legacy-firefox-extension/){:target="_blank"}{:rel="noopener noreferrer"} استفاده کنید.
 
 ## ساختار `WebExtension`ها
 
-هر `WebExtension` یک فایل [`manifest.json`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json) دارد که ساختار، منابع و ویژگی‌های آن را مشخص می‌کند. عکس زیر ساختار کلی فایل `manifest.jason` را در یک `WebExtension` نشان می دهد.
+هر `WebExtension` یک فایل [`manifest.json`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json){:target="_blank"}{:rel="noopener noreferrer"} دارد که ساختار، منابع و ویژگی‌های آن را مشخص می‌کند. عکس زیر ساختار کلی فایل `manifest.jason` را در یک `WebExtension` نشان می دهد.
 
 <div style="text-align: center;">
     <img src="webextension-anatomy.png" style="max-width: 80%; margin: 10px;" alt="ساختار webextensionها">
@@ -79,31 +79,31 @@ mastodon:
 
 این فایل دربردارنده کلیدهای زیر است:
 * کلیدهای اساسی که بایست حتما تعریف شوند:
-	- ورژن مانیفست ([`manifest_version`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/manifest_version))
-	- نام افزونه ([`name`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/name))
-	- ورژن افزونه ([`version`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/version))
+	- ورژن مانیفست ([`manifest_version`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/manifest_version){:target="_blank"}{:rel="noopener noreferrer"})
+	- نام افزونه ([`name`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/name){:target="_blank"}{:rel="noopener noreferrer"})
+	- ورژن افزونه ([`version`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/version){:target="_blank"}{:rel="noopener noreferrer"})
 * کلیدهای انتخابی:
-	- توضیحات برنامه ([`description`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/description))
-	- آیکون‌ها ([`icons`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/icons))
-	- وبگاه یا مخزن افزونه ([`homepage_url`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/homepage_url))
-	- سازنده ([`author`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/author))
-* تنظیمات ویژه مرورگر ([`browser_specific_settings`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings) یا در اینجا `applications`). ویژگی‌های مرورگر برای اجرای افزونه [چنانچه نیاز باشد](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/WebExtensions_and_the_Add-on_ID#When_do_you_need_an_add-on_ID) در این کلید مشخص می‌شوند:
+	- توضیحات برنامه ([`description`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/description){:target="_blank"}{:rel="noopener noreferrer"})
+	- آیکون‌ها ([`icons`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json/icons){:target="_blank"}{:rel="noopener noreferrer"})
+	- وبگاه یا مخزن افزونه ([`homepage_url`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/homepage_url){:target="_blank"}{:rel="noopener noreferrer"})
+	- سازنده ([`author`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/author){:target="_blank"}{:rel="noopener noreferrer"})
+* تنظیمات ویژه مرورگر ([`browser_specific_settings`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_specific_settings){:target="_blank"}{:rel="noopener noreferrer"} یا در اینجا `applications`). ویژگی‌های مرورگر برای اجرای افزونه [چنانچه نیاز باشد](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/WebExtensions_and_the_Add-on_ID#When_do_you_need_an_add-on_ID){:target="_blank"}{:rel="noopener noreferrer"} در این کلید مشخص می‌شوند:
 	- حداقل ورژن موتور ساخت محتوای مرورگر (`gecko`: content rendering engine)
 	- شناسه افزونه برای موتور تولید محتوا (`gecko.id`)
-* اسکریپت پس زمینه ([`Background scripts`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#Background_scripts)): این اسکریپت در قالب یک صفحه ویژه به نام `background page` در پس زمینه اجرا می‌شود.
-* اسکریپت‌های ساخت محتوا ([`Content scripts`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts)) که کار اصلی را بر عهده دارند و خوراک بخش‌های گوناگون افزونه را تولید می‌کنند. افزونه ماهور به جای این کلید از [`experiment_apis`](https://firefox-source-docs.mozilla.org/toolkit/components/extensions/webextensions/basics.html#webextensions-experiments) بهره برده است. اسکریپت تولید محتوا درون `API` بارگذاری می‌شود.
-* رابط برنامه‌نویسی آزمایشی نرم‌افزار ([`experiment_apis`](https://firefox-source-docs.mozilla.org/toolkit/components/extensions/webextensions/basics.html?highlight=experiment_apis#webextensions-experiments)): با این کلید می‌توان یک رابط برنامه نویسی تازه برای استفاده در افزونه ساخت.
+* اسکریپت پس زمینه ([`Background scripts`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#Background_scripts){:target="_blank"}{:rel="noopener noreferrer"}): این اسکریپت در قالب یک صفحه ویژه به نام `background page` در پس زمینه اجرا می‌شود.
+* اسکریپت‌های ساخت محتوا ([`Content scripts`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts){:target="_blank"}{:rel="noopener noreferrer"}) که کار اصلی را بر عهده دارند و خوراک بخش‌های گوناگون افزونه را تولید می‌کنند. افزونه ماهور به جای این کلید از [`experiment_apis`](https://firefox-source-docs.mozilla.org/toolkit/components/extensions/webextensions/basics.html#webextensions-experiments){:target="_blank"}{:rel="noopener noreferrer"} بهره برده است. اسکریپت تولید محتوا درون `API` بارگذاری می‌شود.
+* رابط برنامه‌نویسی آزمایشی نرم‌افزار ([`experiment_apis`](https://firefox-source-docs.mozilla.org/toolkit/components/extensions/webextensions/basics.html?highlight=experiment_apis#webextensions-experiments){:target="_blank"}{:rel="noopener noreferrer"}): با این کلید می‌توان یک رابط برنامه نویسی تازه برای استفاده در افزونه ساخت.
 * صفحه‌های پیش فرض که مانند یک صفحه وب معمولی می‌توانند از فایلهای `css` و `js` استفاده کنند:
-	- نوار کناری ([`Sidebars`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action))
-	- پنجره‌های بازشو (`popups`) ویژگی‌های مربوط به آن در کلید [`browser_action || page_action`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) تعریف می‌شود.
-	- سامان‌دهی (`options`): ویژگی‌های مربوط به آن در کلید [`options_ui`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui)  تعریف می‌شود. این کلید در صفحه `Add-ons Manager` گزینه `Preferences` را برای افزونه نمایان می‌کند. با کلیک کردن روی آن، صفحه ساماندهی در این بخش بارگذاری شده و امکان تغییر ویژگی‌های افزونه را فراهم می‌کند. (ست کردن ویژگی `open_in_tab` صفحه جدیدی برای بارگذاری باز خواهد کرد.)
-* صفحه‌های افزونه ([`Extension pages`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages)): هر افزونه می‌تواند جدا از صفحه‌های پیش فرض، دربردارنده صفحه‌های ویژه خودش نیز باشد که اینجا تعریف می‌شوند.
-* منابع مورد نیاز تولید محتوا ([`Web accessible resources`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/web_accessible_resources)): چنانچه بخواهیم از فایل‌های ‫`HTML`‬، ‫`CSS`‬، ‫`JavaScript`‬ و ... در تولید محتوای افزونه استفاده کنیم آنها را در اینجا مشخص می‌کنیم. (نمونه: چنانچه افزونه نیاز دارد که عکس‌هایی را در صفحه‌های وب نمایش دهد، آنها را در اینجا مسیردهی می‌کنیم تا به آنها دسترسی داشته باشیم.)
-* مجوزها ([`permissions`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions)): مجوزهای مورد نیاز برنامه با این کلید مشخص می‌شوند. برای مجوزهای اختیاری که نداشتن آنها جلوی اجرای برنامه را نمی‌گیرد از کلید [`optional_permissions`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions) استفاده می‌شود.
+	- نوار کناری ([`Sidebars`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action){:target="_blank"}{:rel="noopener noreferrer"})
+	- پنجره‌های بازشو (`popups`) ویژگی‌های مربوط به آن در کلید [`browser_action || page_action`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action){:target="_blank"}{:rel="noopener noreferrer"} تعریف می‌شود.
+	- سامان‌دهی (`options`): ویژگی‌های مربوط به آن در کلید [`options_ui`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui){:target="_blank"}{:rel="noopener noreferrer"}  تعریف می‌شود. این کلید در صفحه `Add-ons Manager` گزینه `Preferences` را برای افزونه نمایان می‌کند. با کلیک کردن روی آن، صفحه ساماندهی در این بخش بارگذاری شده و امکان تغییر ویژگی‌های افزونه را فراهم می‌کند. (ست کردن ویژگی `open_in_tab` صفحه جدیدی برای بارگذاری باز خواهد کرد.)
+* صفحه‌های افزونه ([`Extension pages`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages){:target="_blank"}{:rel="noopener noreferrer"}): هر افزونه می‌تواند جدا از صفحه‌های پیش فرض، دربردارنده صفحه‌های ویژه خودش نیز باشد که اینجا تعریف می‌شوند.
+* منابع مورد نیاز تولید محتوا ([`Web accessible resources`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/web_accessible_resources){:target="_blank"}{:rel="noopener noreferrer"}): چنانچه بخواهیم از فایل‌های ‫`HTML`‬، ‫`CSS`‬، ‫`JavaScript`‬ و ... در تولید محتوای افزونه استفاده کنیم آنها را در اینجا مشخص می‌کنیم. (نمونه: چنانچه افزونه نیاز دارد که عکس‌هایی را در صفحه‌های وب نمایش دهد، آنها را در اینجا مسیردهی می‌کنیم تا به آنها دسترسی داشته باشیم.)
+* مجوزها ([`permissions`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions){:target="_blank"}{:rel="noopener noreferrer"}): مجوزهای مورد نیاز برنامه با این کلید مشخص می‌شوند. برای مجوزهای اختیاری که نداشتن آنها جلوی اجرای برنامه را نمی‌گیرد از کلید [`optional_permissions`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions){:target="_blank"}{:rel="noopener noreferrer"} استفاده می‌شود.
 
 ### رابط برنامه نویسی افزونه‌ها
 
-برای درک بهتر `API`های موزیلا و چگونگی استفاده از آنها [این راهنما](https://developer.mozilla.org/en-US/Add-ons/WebExtensions) را بخوانید.
+برای درک بهتر `API`های موزیلا و چگونگی استفاده از آنها [این راهنما](https://developer.mozilla.org/en-US/Add-ons/WebExtensions){:target="_blank"}{:rel="noopener noreferrer"} را بخوانید.
 
 در زیر نمونه یک `API` تعریف شده در فایل `manifest.json` را مشاهده می‌کنید.
 
@@ -297,7 +297,7 @@ function unpaint(win) {
 {% endhighlight %}
 </div>
 
-برای اینکه امکان فراخوانی توابع `addWindowListener` و `changeSettings` وجود داشته باشد، آنها را با الگوی مشخص شده در [راهنمای موزیلا](https://firefox-source-docs.mozilla.org/toolkit/components/extensions/webextensions/functions.html) و درون `getAPI(context)` تعریف کرده‌ایم.
+برای اینکه امکان فراخوانی توابع `addWindowListener` و `changeSettings` وجود داشته باشد، آنها را با الگوی مشخص شده در [راهنمای موزیلا](https://firefox-source-docs.mozilla.org/toolkit/components/extensions/webextensions/functions.html){:target="_blank"}{:rel="noopener noreferrer"} و درون `getAPI(context)` تعریف کرده‌ایم.
 
 تابع  `addWindowListener` با eventهای `onLoadWindow` و `onUnloadWindow` به ترتیب توابع `paint` و `unpaint` را فراخوانی می‌کند. تابع `paint` با فراخوانی اسکریپت `content/customcol.js` محتوای ستون را تولید کرده و آن را نمایش می‌دهد. تابع `unpaint` نمایش ستون را متوقف و محتوای آن را پاک می‌کند. 
 
@@ -522,16 +522,16 @@ var MahourDateHeaderView = {
 
 ### اسکریپت پس زمینه
 
-اسکریپت‌های پس زمینه به عنوان صفحه‌های ویژه مشخصه [`window`](https://developer.mozilla.org/en-US/docs/Web/API/Window) را با ویژگی [`Document Object Model`](https://developer.mozilla.org/en-US/docs/Glossary/DOM) دارند.
+اسکریپت‌های پس زمینه به عنوان صفحه‌های ویژه مشخصه [`window`](https://developer.mozilla.org/en-US/docs/Web/API/Window){:target="_blank"}{:rel="noopener noreferrer"} را با ویژگی [`Document Object Model`](https://developer.mozilla.org/en-US/docs/Glossary/DOM){:target="_blank"}{:rel="noopener noreferrer"} دارند.
 
 ویژگی‌های صفحه پس زمینه:
 
-صفحه پس زمینه زمانی که افزونه مجوزهای لازم را داشته باشد، می‌تواند به `WebExtension API`ها دسترسی داشته باشد. همچنین با توجه به دسترسی به میزبان ([`host permissions`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions)) امکان فرستادن درخواست‌های `XHR` را دارد. برای آگاهی بیشتر در این زمینه کلید واژه `Cross-origin access` را جستجو کنید.
+صفحه پس زمینه زمانی که افزونه مجوزهای لازم را داشته باشد، می‌تواند به `WebExtension API`ها دسترسی داشته باشد. همچنین با توجه به دسترسی به میزبان ([`host permissions`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions){:target="_blank"}{:rel="noopener noreferrer"}) امکان فرستادن درخواست‌های `XHR` را دارد. برای آگاهی بیشتر در این زمینه کلید واژه `Cross-origin access` را جستجو کنید.
 
-اسکریپت پس زمینه دسترسی مستقیم به صفحه‌های وب ندارد، اما می‌تواند اسکریپت‌های تولید محتوا ([`content scripts`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts)) را در آنها بارگذاری کند و با استفاده از [`message-passing API`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Content_scripts#Communicating_with_background_scripts) با آنها ارتباط برقرار کند. از این شیوه در افزونه ماهور استفاده شده است.
+اسکریپت پس زمینه دسترسی مستقیم به صفحه‌های وب ندارد، اما می‌تواند اسکریپت‌های تولید محتوا ([`content scripts`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts){:target="_blank"}{:rel="noopener noreferrer"}) را در آنها بارگذاری کند و با استفاده از [`message-passing API`](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Content_scripts#Communicating_with_background_scripts){:target="_blank"}{:rel="noopener noreferrer"} با آنها ارتباط برقرار کند. از این شیوه در افزونه ماهور استفاده شده است.
 
 > نکته: اسکریپت‌های پس زمینه برای جلوگیری از دسترسی به کنش‌های نابجا محدودیت‌هایی  نیز دارند. نداشتن توان فراخوانی `eval()` نمون‌ای از این محدودیت‌ها است.
-> برای آگاهی بیشتر [`Content Security Policy`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy) را بخوانید.
+> برای آگاهی بیشتر [`Content Security Policy`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy){:target="_blank"}{:rel="noopener noreferrer"} را بخوانید.
 > همچنین امکان فراخوانی `alert()`، `confirm()`، یا `prompt()` نیز در این صفحه وجود ندارد.
 
 کد اسکریپت پس زمینه ماهور:
@@ -592,7 +592,7 @@ init();
 
 برای تست افزونه‌ها روی Thunderbird در صفحه `Add-ons Manager`  روی `Tools for all add-ons` (<i class="fa fa-cog"></i> <i class="fa  fa-chevron-down"></i>) کلیک کنید. با انتخاب گزینه `Debug Add-ons` یک تب جدید باز می‌شود که در آن افزونه ها را می‌توانید موقتا نصب و امتحان کنید. کافی است روی `Load Temporary Add-on` کلیک کنید و فایل `manifest.json` افزونه را انتخاب کنید.
 
-- [راهنمای توسعه رابط برنامه نویسی برای افزونه‌ها](https://firefox-source-docs.mozilla.org/toolkit/components/extensions/webextensions/index.html)
-- [افزونه‌های مرورگر](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions)
-- [نمونه‌های ساده](https://github.com/mdn/webextensions-examples)
+- [راهنمای توسعه رابط برنامه نویسی برای افزونه‌ها](https://firefox-source-docs.mozilla.org/toolkit/components/extensions/webextensions/index.html){:target="_blank"}{:rel="noopener noreferrer"}
+- [افزونه‌های مرورگر](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions){:target="_blank"}{:rel="noopener noreferrer"}
+- [نمونه‌های ساده](https://github.com/mdn/webextensions-examples){:target="_blank"}{:rel="noopener noreferrer"}
 

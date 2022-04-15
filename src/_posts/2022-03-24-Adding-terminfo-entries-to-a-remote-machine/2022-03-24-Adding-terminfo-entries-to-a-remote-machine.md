@@ -12,7 +12,7 @@ mastodon:
 
 # جابجایی فایل بین گوشی اندروید و سیستم گنو/لینوکس و مشکل `terminfo` برای ترمینال `foot`
 
-من روی سیستم از تریمینال امولاتور [`foot`](https://codeberg.org/dnkl/foot) استقاده می‌کنم که روی `wayland` به درستی اجرا می‌شود و بسیار ساده، سریع و مینیمال است.
+من روی سیستم از تریمینال امولاتور [`foot`](https://codeberg.org/dnkl/foot){:target="_blank"}{:rel="noopener noreferrer"} استقاده می‌کنم که روی `wayland` به درستی اجرا می‌شود و بسیار ساده، سریع و مینیمال است.
 برای جابجایی فایل‌ها بین گوشی اندروید و سیستم گنو/لینوکس هم از `scp` یا `rsync` روی `ssh` استفاده می‌کنم. اگر دوست دارید، می‌توانید ویدیوی آموزشی که در این باره ساختم را ببینید.
 
 <div style="text-align: center;">
@@ -146,5 +146,5 @@ infocmp | ssh <REMOTE-MACHINE> "cat > /tmp/terminfo && tic -x /tmp/terminfo; rm 
 
 # منابع:
 
-- [kitty FAQ](https://sw.kovidgoyal.net/kitty/faq/#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-when-sshing-into-a-different-computer)
-- [foot repository](https://codeberg.org/dnkl/foot)
+- [kitty FAQ](https://sw.kovidgoyal.net/kitty/faq/#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-when-sshing-into-a-different-computer){:target="_blank"}{:rel="noopener noreferrer"}
+- [foot repository](https://codeberg.org/dnkl/foot){:target="_blank"}{:rel="noopener noreferrer"}

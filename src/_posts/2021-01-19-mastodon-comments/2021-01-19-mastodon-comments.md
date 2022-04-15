@@ -13,21 +13,21 @@ mastodon:
 
 # ماستودون
 
-[از ویکی‌پدیا، دانشنامه آزاد](https://fa.wikipedia.org/wiki/%D9%85%D8%A7%D8%B3%D8%AA%D9%88%D8%AF%D9%88%D9%86_(%D9%86%D8%B1%D9%85%E2%80%8C%D8%A7%D9%81%D8%B2%D8%A7%D8%B1))
+[از ویکی‌پدیا، دانشنامه آزاد](https://fa.wikipedia.org/wiki/%D9%85%D8%A7%D8%B3%D8%AA%D9%88%D8%AF%D9%88%D9%86_(%D9%86%D8%B1%D9%85%E2%80%8C%D8%A7%D9%81%D8%B2%D8%A7%D8%B1)){:target="_blank"}{:rel="noopener noreferrer"}
 
-[ماستودون (به انگلیسی: Mastodon)](https://joinmastodon.org/) یک نرم‌افزار آزاد و متن‌باز خودمیزبان (خدمات وب) برای ساخت شبکهٔ اجتماعی است که این امکان را به هر شخص می‌دهد تا گره سرور خود را در شبکه میزبانی کند و پایگاه‌های مختلف از کاربران آن در میان سروهای متفاوتی پخش هستند.
+[ماستودون (به انگلیسی: Mastodon)](https://joinmastodon.org/){:target="_blank"}{:rel="noopener noreferrer"} یک نرم‌افزار آزاد و متن‌باز خودمیزبان (خدمات وب) برای ساخت شبکهٔ اجتماعی است که این امکان را به هر شخص می‌دهد تا گره سرور خود را در شبکه میزبانی کند و پایگاه‌های مختلف از کاربران آن در میان سروهای متفاوتی پخش هستند.
 
-این سرورها به صورت شبکه اجتماعی فدرال به هم متصل هستند، که به کاربران خود اجازه می‌دهد با یکدیگر به شکل یکپارچه تعامل داشته باشند. ماستودون عضوی از یک [فدراسیون بزرگ‌تر](https://fediverse.party/) است که به کاربران امکان می‌دهد با دیگر سکوهای آزاد مانند [پیرتیوب](https://joinpeertube.org/) و [فرندیکا](https://friendi.ca/) که قوانین یکسانی را پشتیبانی می‌کنند تعامل داشته باشند. 
+این سرورها به صورت شبکه اجتماعی فدرال به هم متصل هستند، که به کاربران خود اجازه می‌دهد با یکدیگر به شکل یکپارچه تعامل داشته باشند. ماستودون عضوی از یک [فدراسیون بزرگ‌تر](https://fediverse.party/){:target="_blank"}{:rel="noopener noreferrer"} است که به کاربران امکان می‌دهد با دیگر سکوهای آزاد مانند [پیرتیوب](https://joinpeertube.org/){:target="_blank"}{:rel="noopener noreferrer"} و [فرندیکا](https://friendi.ca/){:target="_blank"}{:rel="noopener noreferrer"} که قوانین یکسانی را پشتیبانی می‌کنند تعامل داشته باشند. 
 
 # افزودن بخش دیدگاه‌ها با ماستودون
 
-یکی از دشواری‌های وبسایت‌ها استاتیک افزودن بخش دیدگاه‌هاست. گزینه‌های گوناگونی برای انجام این کار وجود دارد. یک راهکار ساده استفاده از Disqus است. چون Disqus  سنگین است و مقدار زیادی اسکریپت غیرضروری در صفحات بارگزاری می‌کند و مهم‌تر از همه آزاد نیست هرگز گزینه مطلوبی برای من نبود. برای دیدن راهکارهای بیشتر می‌توانید [این پست](https://mehdix.ir/static-comments.html) مهدی صادقی را ببینید.
+یکی از دشواری‌های وبسایت‌ها استاتیک افزودن بخش دیدگاه‌هاست. گزینه‌های گوناگونی برای انجام این کار وجود دارد. یک راهکار ساده استفاده از Disqus است. چون Disqus  سنگین است و مقدار زیادی اسکریپت غیرضروری در صفحات بارگزاری می‌کند و مهم‌تر از همه آزاد نیست هرگز گزینه مطلوبی برای من نبود. برای دیدن راهکارهای بیشتر می‌توانید [این پست](https://mehdix.ir/static-comments.html){:target="_blank"}{:rel="noopener noreferrer"} مهدی صادقی را ببینید.
 
-با سپاس از [‪@carl‬](https://linuxrocks.online/@carl) برای نوشتن کد و گزارشی که در [این پست](https://carlschwan.eu/2020/12/29/adding-comments-to-your-static-blog-with-mastodon/) نوشته است، از این پس شما می‌توانید با داشتن یک اکانت ماستودون دیدگاه‌های خودتان را برای من بفرستید، و آنچه دیگران نوشته‌اند را هم ببینید.
+با سپاس از [‪@carl‬](https://linuxrocks.online/@carl){:target="_blank"}{:rel="noopener noreferrer"} برای نوشتن کد و گزارشی که در [این پست](https://carlschwan.eu/2020/12/29/adding-comments-to-your-static-blog-with-mastodon/){:target="_blank"}{:rel="noopener noreferrer"} نوشته است، از این پس شما می‌توانید با داشتن یک اکانت ماستودون دیدگاه‌های خودتان را برای من بفرستید، و آنچه دیگران نوشته‌اند را هم ببینید.
 
 ## کد جاوا اسکریپت
 
-چون کد اصلی برای [`#HUGO`](https://gohugo.io/) نوشته شده بود، من تغییرات اندکی در آن دادم تا با [`#JEKYLL`](https://jekyllrb.com/) سازگار شود و آن را در فایل [`mastodon.html`](https://raw.githubusercontent.com/mhdzli/zmim.ir/master/src/_includes/mastodon.html) در پوشه [`_includes`](https://github.com/mhdzli/zmim.ir/tree/master/src/_includes) قراد دادم:
+چون کد اصلی برای [`#HUGO`](https://gohugo.io/){:target="_blank"}{:rel="noopener noreferrer"} نوشته شده بود، من تغییرات اندکی در آن دادم تا با [`#JEKYLL`](https://jekyllrb.com/){:target="_blank"}{:rel="noopener noreferrer"} سازگار شود و آن را در فایل [`mastodon.html`](https://raw.githubusercontent.com/mhdzli/zmim.ir/master/src/_includes/mastodon.html){:target="_blank"}{:rel="noopener noreferrer"} در پوشه [`_includes`](https://github.com/mhdzli/zmim.ir/tree/master/src/_includes){:target="_blank"}{:rel="noopener noreferrer"} قراد دادم:
 
 
 <div class="code-block">
@@ -97,7 +97,7 @@ mastodon:
 {% endhighlight %}
 </div>
 
-سپس در [`layout` مربوط به پست‌ها]() یک شرط افزودم تا هر زمان که در [`frontmatter`](https://jekyllrb.com/docs/front-matter/) پست ‍`mastodon` وجود داشت، بخش دیدگاه‌ها افزوده شود:
+سپس در [`layout` مربوط به پست‌ها](https://raw.githubusercontent.com/mhdzli/zmim.ir/master/src/_layouts/post.html){:target="_blank"}{:rel="noopener noreferrer"} یک شرط افزودم تا هر زمان که در [`frontmatter`](https://jekyllrb.com/docs/front-matter/){:target="_blank"}{:rel="noopener noreferrer"} پست ‍`mastodon` وجود داشت، بخش دیدگاه‌ها افزوده شود:
 
 <div class="code-block">
 {% highlight liquid %}
@@ -128,6 +128,6 @@ mastodon:
 - username: نام کاربری در ماستودون
 - id: شماره یکتای بوق مربوط به پست
 
-در پایان هم برای نمایش بهتر دیدگاه‌ها از [این چند خط `CSS`](https://github.com/mhdzli/zmim.ir/commit/78e351e5f809ead9eb4a77021026c5364c6e2081) استفاده کردم.
+در پایان هم برای نمایش بهتر دیدگاه‌ها از [این چند خط `CSS`](https://github.com/mhdzli/zmim.ir/commit/78e351e5f809ead9eb4a77021026c5364c6e2081){:target="_blank"}{:rel="noopener noreferrer"} استفاده کردم.
 
 اینجا می‌توانید نتیجه نهایی را آزمایش کنید:
