@@ -8,13 +8,13 @@ comments: false
 
 فارغ‌التحصیل رشته مهندسی برق از دانشگاه علم و صنعت، یک کرمانی که اکنون در شیراز زندگی می‌کنم. اینجا درباره همه چیزهایی که برایم جذاب هستند می‌نویسم.
 
-این وبلاک از [Jekyll](https://jekyllrb.com/) نیرو گرفته و بر روی [Netlify](https://www.netlify.com/) هاست شده.
+این وبلاگ از [Jekyll](https://jekyllrb.com/) نیرو گرفته و بر روی [Netlify](https://www.netlify.com/) هاست شده.
 
 اگر دوست داشتید از این قالب استفاده کنید می‌توانید اینجا و به اسم [سیمرغ](https://github.com/mhdzli/simorq)  بیابیدش.
 
 
 
-**اگر نیاز بود که با من تماس بگیرید: ✨**
+**✨ اگر نیاز بود که با من تماس بگیرید:**
 
 - <a class="footer item" href="mailto:{{ site.email }}">ایمیل من</a>
 - [آدرس گیتهاب](github.com/{{ site.author.github }})
