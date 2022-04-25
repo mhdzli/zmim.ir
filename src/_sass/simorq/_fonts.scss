@@ -65,6 +65,23 @@
     font-style: normal;
 }
 
+
+/*
+** Comic Mono
+*/
+
+@font-face {
+  font-family: Comic Mono;
+  font-weight: normal;
+  src: url(/assets/fonts/ComicMono/ComicMono.ttf);
+}
+
+@font-face {
+  font-family: Comic Mono;
+  font-weight: bold;
+  src: url(/assets/fonts/ComicMono/ComicMono-Bold.ttf);
+}
+
 /*
 ** Vazir Code Font
 */
