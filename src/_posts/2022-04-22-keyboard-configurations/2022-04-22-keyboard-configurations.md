@@ -747,7 +747,7 @@ There are 10 KeySyms per KeyCode; KeyCodes range from 8 to 255.
 {% endhighlight %}
 </div>
 
-فرمان `xmodmap -pke` این لیست را به صورتی که برای `xmodmao` قابل استفاده باشد در اختیار شما قرار می‌دهد.
+فرمان `xmodmap -pke` این لیست را به صورتی که برای `xmodmap` قابل استفاده باشد در اختیار شما قرار می‌دهد.
 
 <div class="code-block">
 {% highlight bash %}
