@@ -1,0 +1,30 @@
+.toc__list:before {
+ content: "آنچه خواهید خواند:";
+ font-weight: bold;
+ font-size: 1.5rem;
+}
+
+.toc__list {
+ border: 2px solid $box;
+ border-radius: 4px;
+ line-height: 1.8rem;
+ padding: 1rem 1.5rem;
+ font-weight: 600;
+}
+
+.toc__sublist li {
+ padding-left: 1.25rem;
+}
+
+.toc-h2:first-child {
+ margin-top: 1rem;
+}  
+
+#toc a {
+ color: $text-link-blue;
+ text-decoration: underline;
+}
+
+#toc a:hover {
+ color: $text-link-blue-active;
+}

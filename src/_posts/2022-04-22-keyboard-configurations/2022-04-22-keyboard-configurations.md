@@ -4,6 +4,7 @@ date: 2022-04-22 10:42:36 +04:30
 tags: [foss, swaywm, wayland, xorg, linux]
 description: تنظیمات صفحه کلید در گنو/لینوکس و شخصی‌سازی لایه‌های صفحه کلید.
 image:
+toc: true
 mastodon:
   host: mas.to
   username: mz
