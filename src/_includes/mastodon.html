@@ -1,62 +1,113 @@
 <div class="page-content">
   <h2>دیدگاه‌ها</h2>
   <p>می‌توانید دیدگاه‌های این پست را در ماستودون و<a class="link" href="https://{{ page.mastodon.host }}/@{{ page.mastodon.username }}/{{ page.mastodon.id }}" target="_blank" rel="noopener noreferrer"> اینجا </a>ببینید. برای نوشتن دیدگاه خود روی لینک زیر کلیک کنید.</p>
-  <p><a class="button" href="https://{{ page.mastodon.host }}/interact/{{ page.mastodon.id }}?type=reply" target="_blank" rel="noopener noreferrer">نوشتن دیدگاه‌</a></p>
+  <p><a class="button" href="https://{{ page.mastodon.host }}/@{{ page.mastodon.username }}/{{ page.mastodon.id }}" target="_blank" rel="noopener noreferrer">نوشتن دیدگاه‌</a></p>
   <p></p>
   <p id="mastodon-comments-list"><a id="load-comment" class="button">دیدن دیدگاه‌ها</a></p>
-  <noscript><p>برای این بخش می‌باید جاوا اسکریپت را فعال کنید.</p></noscript>
+  <div id="comments-wrapper">
+    <noscript><p>برای این بخش می‌باید جاوا اسکریپت را فعال کنید، یا <a href="https://{{ page.mastodon.host }}/@{{ page.mastodon.username }}/{{ page.mastodon.id }}" target="_blank" rel="noopener noreferrer">پست اصلی</a> را در ماستودون ببینید</p></noscript>
+  </div>
   <script src="/assets/js/purify.min.js"></script>
   <script type="text/javascript">
     function escapeHtml(unsafe) {
       return unsafe
-           .replace(/&/g, "&amp;")
-           .replace(/</g, "&lt;")
-           .replace(/>/g, "&gt;")
-           .replace(/"/g, "&quot;")
-           .replace(/'/g, "&#039;");
-   }
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
 
-    document.getElementById("load-comment").addEventListener("click", function() {
+    function emojify(input, emojis) {
+      let output = input;
+
+      emojis.forEach(emoji => {
+        let picture = document.createElement("picture");
+
+        let source = document.createElement("source");
+        source.setAttribute("srcset", escapeHtml(emoji.url));
+        source.setAttribute("media", "(prefers-reduced-motion: no-preference)");
+
+        let img = document.createElement("img");
+        img.className = "emoji";
+        img.setAttribute("src", escapeHtml(emoji.static_url));
+        img.setAttribute("alt", `:${ emoji.shortcode }:`);
+        img.setAttribute("title", `:${ emoji.shortcode }:`);
+        img.setAttribute("width", "20");
+        img.setAttribute("height", "20");
+
+        picture.appendChild(source);
+        picture.appendChild(img);
+
+        output = output.replace(`:${ emoji.shortcode }:`, picture.outerHTML);
+      });
+
+      return output;
+    }
+
+    function loadcomments() {
       document.getElementById("load-comment").innerHTML = "دریافت دیدگاه‌ها";
       fetch('https://{{ page.mastodon.host }}/api/v1/statuses/{{ page.mastodon.id }}/context')
         .then(function(response) {
           return response.json();
         })
         .then(function(data) {
-          if(data['descendants'] &&
-             Array.isArray(data['descendants']) && 
-            data['descendants'].length > 0) {
-              document.getElementById('mastodon-comments-list').innerHTML = "";
-              data['descendants'].forEach(function(reply) {
+          let descendants = data['descendants'];
+          if(
+            descendants &&
+            Array.isArray(descendants) &&
+            descendants.length > 0
+          ) {
+            document.getElementById('mastodon-comments-list').innerHTML = "";
+            descendants.forEach(function(reply) {
+              if( reply.account.display_name.length > 0 ) {
                 reply.account.display_name = escapeHtml(reply.account.display_name);
-                reply.account.emojis.forEach(emoji => {
-                  reply.account.display_name = reply.account.display_name.replace(`:${emoji.shortcode}:`,
-                    `<img src="${escapeHtml(emoji.static_url)}" alt="Emoji ${emoji.shortcode}" height="20" width="20" />`);
-                });
-                mastodonComment =
-                  `<div class="mastodon-comment">
-                     <div class="avatar">
-                       <img src="${escapeHtml(reply.account.avatar_static)}" height=60 width=60 alt="">
-                     </div>
-                     <div class="content">
-                       <div class="author">
-                         <a href="${reply.account.url}" rel="nofollow">
-                           <span>${reply.account.display_name}</span>
-                           <span class="disabled">${escapeHtml(reply.account.acct)}</span>
-                         </a>
-                         <a class="date" href="${reply.uri}" rel="nofollow">
-                           ${reply.created_at.substr(0, 10)}
-                         </a>
-                       </div>
-                       <div class="mastodon-comment-content">${reply.content}</div> 
-                     </div>
-                   </div>`;
-                document.getElementById('mastodon-comments-list').appendChild(DOMPurify.sanitize(mastodonComment, {'RETURN_DOM_FRAGMENT': true}));
+                reply.account.display_name = emojify(reply.account.display_name, reply.account.emojis);
+              } else {
+                reply.account.display_name = reply.account.username;
+              };
+
+              reply.content = emojify(reply.content, reply.emojis);
+
+              reply.created_at = new Date( reply.created_at ).toLocaleString('fa-IR', {
+                dateStyle: "long",
+                timeStyle: "short",
               });
+
+              let instance = "";
+              if( reply.account.acct.includes("@") ) {
+                instance = reply.account.acct.split("@")[1];
+              } else {
+                instance = "{{ page.mastodon.host }}";
+              }
+
+              mastodonComment =
+                `<div class="mastodon-comment">
+                <div class="avatar">
+                <img src="${escapeHtml(reply.account.avatar_static)}" height=60 width=60 alt="">
+                </div>
+                <div class="content">
+                <div class="author" title="profile: @${ reply.account.username }@${ instance }">
+                <a href="${reply.account.url}" target="_blank" rel="external nofollow">
+                <span>${reply.account.display_name}</span>
+                <span class="instance">${instance}</span>
+                </a>
+                </div>
+                <div title="دیدن دیدگاه در ${ instance }">
+                <a class="date" href="${reply.uri}" target="_blank" rel="external nofollow">
+                ${reply.created_at}
+                </a>
+                </div>
+                <div class="mastodon-comment-content">${reply.content}</div> 
+                </div>
+                </div>`;
+              document.getElementById('mastodon-comments-list').appendChild(DOMPurify.sanitize(mastodonComment, {'RETURN_DOM_FRAGMENT': true}));
+            });
           } else {
             document.getElementById('mastodon-comments-list').innerHTML = "<p>بدون دیدگاه</p>";
           }
         });
-      });
+    }
+    document.getElementById("load-comment").addEventListener("click", loadcomments);
   </script>
 </div>

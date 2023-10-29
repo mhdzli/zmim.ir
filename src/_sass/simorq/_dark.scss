@@ -260,6 +260,11 @@ body[data-theme="dark"] {
         color: $dark-light
       }
     }
+    .author{
+        .instance {
+            background-color: $dark-black;
+        }
+    }
   }
   .toc__list {
      border: 2px solid $dark-light;
