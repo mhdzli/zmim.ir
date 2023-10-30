@@ -54,6 +54,7 @@ body[data-theme="dark"] {
   }
 
   // Syntax
+  @import "syntax-dark";
   code {
     &.highlighter-rouge {
       background-color: $dark-light;

@@ -54,13 +54,14 @@ layout: compress
             <span itemprop="author" itemscope itemtype="https://schema.org/Person">
               <span itemprop="name">{{ site.author.name }}</span>
             </span>
-                {% if page.modified %}
+            {% if page.modified %}
+            <div>
                 <time class="date-modify" datetime="{{ page.modified | date_to_xmlschema }}" itemprop="dateModified">
-                  <small class="post-updated-at">به روز رسانی در
-                    {% assign date_format = site.minima.date_format | default: "%d %b، %Y" %}{{ page.modified | jdate: date_format }}
-                  </small>
+                  به روز رسانی در
+                  {% assign date_format = site.minima.date_format | default: "%d %b، %Y" %}{{ page.modified | jdate: date_format }}
                 </time>
-                {% endif %}
+            </div>
+            {% endif %}
             <span hidden itemprop="publisher" itemtype="Person">{{ site.author.name }}</span>
             <span hidden itemprop="image">{{ page.image }}</span>
             <span hidden itemprop="mainEntityOfPage">{{ page.excerpt }}</span>
