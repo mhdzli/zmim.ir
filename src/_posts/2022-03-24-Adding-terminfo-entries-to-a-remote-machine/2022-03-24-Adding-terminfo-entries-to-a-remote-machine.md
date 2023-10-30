@@ -15,8 +15,8 @@ mastodon:
 من روی سیستم از تریمینال امولاتور [`foot`](https://codeberg.org/dnkl/foot){:target="_blank"}{:rel="noopener noreferrer"} استقاده می‌کنم که روی `wayland` به درستی اجرا می‌شود و بسیار ساده، سریع و مینیمال است.
 برای جابجایی فایل‌ها بین گوشی اندروید و سیستم گنو/لینوکس هم از `scp` یا `rsync` روی `ssh` استفاده می‌کنم. اگر دوست دارید، می‌توانید ویدیوی آموزشی که در این باره ساختم را ببینید.
 
-<div style="text-align: center;">
-<iframe id="odysee-iframe" width="560" height="315" src="https://odysee.com/$/embed/ssh-on-termux/2c1fb60299e057dad14d1ffdd70f5bdbee16df88?r=CTpZDCJuEb8cZyCyCCpUEdw5D4LFZTkn" allowfullscreen></iframe>
+<div class="video">
+<iframe id="odysee-iframe" src="https://odysee.com/$/embed/ssh-on-termux/2c1fb60299e057dad14d1ffdd70f5bdbee16df88?r=CTpZDCJuEb8cZyCyCCpUEdw5D4LFZTkn" allowfullscreen></iframe>
 </div>
 
 هنگامی که برای اولین بار از ترمینال `foot` به گوشی اندرویدم `ssh` کردم، رنگ‌های ترمینال به درستی نمایش داده نمی‌شد و هر کاراکتری که تایپ می‌کردم دو بار نوشته می‌شد.

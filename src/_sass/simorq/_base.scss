@@ -122,6 +122,23 @@ figure {
   position: relative;
 }
 
+.video {
+  position: relative;
+  width: 100%;
+  height: 0;
+  border: 1px solid #ff2957;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+}
+
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 // Image inside Figure tag
 figure > img {
   display: block;

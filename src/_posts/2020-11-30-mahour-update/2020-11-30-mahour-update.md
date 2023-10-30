@@ -587,9 +587,9 @@ init();
 # منابع مفید:
 
 اگر با ساخت افزونه‌ها آشنایی ندارید و تازه می‌خواهید شروع کنید این ویدیوی آقای شجاعی را ببینید:
-
-<iframe width="560" height="315" sandbox="allow-same-origin allow-scripts allow-popups" src="https://peertube.linuxrocks.online/videos/embed/d70182ca-9ea9-4411-bd24-86dcbff95ceb" frameborder="0" allowfullscreen></iframe>
-
+<div class="video">
+  <iframe sandbox="allow-same-origin allow-scripts allow-popups" src="https://peertube.linuxrocks.online/videos/embed/d70182ca-9ea9-4411-bd24-86dcbff95ceb" frameborder="0" allowfullscreen></iframe>
+</div>
 برای تست افزونه‌ها روی Thunderbird در صفحه `Add-ons Manager`  روی `Tools for all add-ons` (<i class="fa fa-cog"></i> <i class="fa  fa-chevron-down"></i>) کلیک کنید. با انتخاب گزینه `Debug Add-ons` یک تب جدید باز می‌شود که در آن افزونه ها را می‌توانید موقتا نصب و امتحان کنید. کافی است روی `Load Temporary Add-on` کلیک کنید و فایل `manifest.json` افزونه را انتخاب کنید.
 
 - [راهنمای توسعه رابط برنامه نویسی برای افزونه‌ها](https://firefox-source-docs.mozilla.org/toolkit/components/extensions/webextensions/index.html){:target="_blank"}{:rel="noopener noreferrer"}
