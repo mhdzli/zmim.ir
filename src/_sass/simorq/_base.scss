@@ -160,6 +160,26 @@ button {
   background-color: $box;
 }
 
+figure.highlight > button {
+  padding: 0.5rem;
+  opacity: 0;
+  position: absolute;
+  right: 1.5rem;
+  top: 0.5rem;
+  transition: all 0.2s ease-out;
+}
+
+figure.highlight:hover > button {
+  opacity: 1;
+}
+
+figure.highlight > button:active,
+figure.highlight > button:focus,
+figure.highlight > button:hover {
+  opacity: 1;
+  color: #ff2957;
+}
+
 // List
 ul {
   list-style: none;

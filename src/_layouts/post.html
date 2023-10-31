@@ -97,6 +97,28 @@ layout: compress
 
     {% include footer.html %}
   </div>
+  <!-- add copy button to code blocks -->
+  <script>
+    document
+      .querySelectorAll('figure.highlight')
+      .forEach(function (pre) {
+        var button = document.createElement('button');
+        var copyText = `<i class="fa fa-copy"></i>`;
+        button.type = 'button';
+        button.ariaLabel = 'Copy code to clipboard';
+        button.innerHTML = copyText;
+        button.addEventListener('click', function () {
+          var code = pre.querySelector('code').innerText.trim();
+          navigator.clipboard.writeText(code);
+          button.innerHTML = `<i class="fa fa-check"></i>`;
+          setTimeout(function () {
+            button.blur();
+            button.innerHTML = copyText;
+          }, 2e3);
+        });
+        pre.appendChild(button);
+      });
+  </script>
 </body>
 
 </html>

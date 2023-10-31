@@ -9,7 +9,7 @@ description: ffmpeg and sox scripts.
 
 # common usage
 
-```
+{% highlight bash %}
 ffmpeg -i input.mp4 -hide_banner # getting input file information 
 
 ffmpeg -i input.webm -qscale 0 output.mp4 # convert video preserving the quality of source video file
@@ -60,36 +60,36 @@ ffmpeg -i input.mp4 -vf "transpose=clock" output.mp4 # rotate the given video by
 # 1. Rotate by 90 degrees clockwise.
 # 2. Rotate by 90 degrees counter-clockwise.
 # 3. Rotate by 90 degrees clockwise and flip vertically.
-```
+{% endhighlight %}
 
 # metadata
 
-```
+{% highlight bash %}
 ffmpeg -i in.mp4 -f ffmetadata in.txt # Save the global metadata to a text file
 ffmpeg -i in.mp4 -c copy -map_metadata 0 -map_metadata:s:v 0:s:v -map_metadata:s:a 0:s:a -f ffmetadata in.txt # Save metadata from the video and audio streams
 ffprobe -show_streams -show_format input.mkv # Use ffprob for information
 ffprobe -show_frames input.mkv # Use ffprobe or information about each single frame in a video file 
 ffmpeg -i source.mp4 -metadata album_artist='VAR' -c copy output.mp4 # Set metadata
 find /home/user/videos-to-process/ -type f -iname '*.mp4' -exec ffmpeg -i "{}" -codec copy -metadata artist="John Smith" -metadata album="Foo Bar" "{}.new.mp4" \; -exec mv "{}.new.mp4" "{}" \; # set metadata
-```
+{% endhighlight %}
 
 # lbry preferred format
 
-```
+{% highlight bash %}
 ffmpeg -i input.avi -c:v libx264 -crf 21 -preset faster -pix_fmt yuv420p -maxrate 5000K -bufsize 5000K -vf 'scale=if(gte(iw\,ih)\,min(1920\,iw)\,-2):if(lt(iw\,ih)\,min(1920\,ih)\,-2)' -movflags +faststart -c:a aac -b:a 160k output.mp4
-```
+{% endhighlight %}
 
 # convert a PDF to video
 
-```
+{% highlight bash %}
 convert -density 400 input.pdf picture.png # convert PDF to picture-1.png, ...
 
 ffmpeg -r 1/10 -i picture-%01d.png -c:v libx264 -r 30 -pix_fmt yuv420p video.mp4 # -r 1/10: Display each image for 10 seconds.
-```
+{% endhighlight %}
 
 # noise reduction using sox
 
-```bash
+{% highlight bash %}
 #!/usr/bin/env bash
 
 usage ()
@@ -167,11 +167,11 @@ else
 fi
 
 echo "Done"
-```
+{% endhighlight %}
 
 # booksplit
 
-```bash
+{% highlight bash %}
 #!/bin/sh
 
 # Requires ffmpeg (audio splitting) and my `tag` wrapper script.
@@ -219,12 +219,11 @@ echo "From $start to the end: $title"
 file="$escbook/$(printf "%.2d" "$track")-$esctitle.$ext"
 echo "Splitting \"$title\"..." && ffmpeg -nostdin -y -loglevel -8 -i "$inputaudio" -ss "$start" -vn -c copy "$file" &&
 		echo "Tagging \"$title\"..." && tag -a "$author" -A "$booktitle" -t "$title" -n "$track" -N "$total" -d "$year" "$file"
-```
+{% endhighlight %}
 
 ## tag script
 
-```bash
-
+{% highlight bash %}
 #!/bin/sh
 
 err() { echo "Usage:
@@ -285,31 +284,34 @@ Comment=$comment" | opustags -i -S "$file" ;;
 	*.mp3) eyeD3 -Q --remove-all -a "$artist" -A "$album" -t "$title" -n "$track" -N "$total" -Y "$date" "$file" ;;
 	*) echo "File type not implemented yet." ;;
 esac
-```
+{% endhighlight %}
 
 ## use
 
-```
+{% highlight bash %}
 booksplit path/to/audio path/to/timecodefile
-```
+{% endhighlight %}
+
 ## timecodefile:
+{% highlight plaintext %}
 00:00:00 first part name
 hh:mm:ss second part name
 ...
+{% endhighlight %}
 
 # filters
 
 ## frozen frames with mpdecimate
 
-```
+{% highlight bash %}
 ffmpeg -i input.mkv -vf mpdecimate,setpts=N/FRAME_RATE/TB -an output.mkv # remove frozen frames
 
 ffmpeg -hide_banner -nostats -an -i $IN -vf "freezedetect=n=${NOISE}dB:d=${DURATION}" -f null - 2>&1 | grep -e "freeze_start" -e "freeze_end" # detect frozen frames 
-```
+{% endhighlight %}
 
 ## video stabliser vidstabs
 
-```
+{% highlight bash %}
 ffmpeg -i input.mp4 -vf vidstabdetect -f null - # Use default values
 
 ffmpeg -i input.mp4 -vf vidstabdetect=shakiness=10:accuracy=15:result="mytransforms.trf" -f null - # Analyzing strongly shaky video and putting the results in file mytransforms.trf
@@ -323,5 +325,4 @@ ffmpeg -i input.mp4 -vf vidstabtransform,unsharp=5:5:0.8:3:3:0.4 out_stabilized.
 ffmpeg -i input.mp4 -vf vidstabtransform=zoom=5:input="mytransforms.trf" out_stabilized.mp4 # Zooming-in a bit more and load transform data from a given file
 
 ffmpeg -i input.mp4 -vf vidstabtransform=smoothing=30:input="mytransforms.trf" out_stabilized.mp4 # Smoothening the video even more
-```
-
+{% endhighlight %}

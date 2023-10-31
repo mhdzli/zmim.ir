@@ -20,12 +20,18 @@ code {
   }
 }
 
+.code-block {
+  direction: ltr;
+  text-align: left;
+}
+
 // Codeblock Theme
 pre.highlight, pre {
   margin: 0 10px;
   @include media-query($on-mobile) {
     margin: 0 calc(51% - 51vw);
-    padding-left: 20px;
+    padding-left: 20px;direction: ltr;
+    text-align: left;
   }
   border: 3px solid rgba(226, 98, 98, 0.638);
   background-color: #f4f4f4;
