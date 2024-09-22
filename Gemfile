@@ -14,6 +14,9 @@ gem "webrick"
 # Fix for mismatched deps: https://github.com/ffi/ffi/issues/1103
 gem "ffi", "< 1.17.0"
 
+# Fix for sassc 2.2.0 Error: https://github.com/sass/sassc-ruby/issues/146
+gem "sassc", "< 2.2.0"
+
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
