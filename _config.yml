@@ -5,6 +5,7 @@ title: محمد زینلی # site title
 description: >- # site description
   یادداشت‌های محمد زینلی   <a href="https://github.com/piharpi" target="_blank" rel="noopener">@github</a>.
 lang: fa # default lang
+date_format: fa-IR # fa-IR || en-US -- set to fa-IR for persian dates
 timezone: Asia/Tehran # set your timezone
 image: assets/img/ogp.png # This image used for Open Graph more info https://ogp.me/
 repo: https://github.com/mhdzli/simorgh # site repo [optional]

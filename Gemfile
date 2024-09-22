@@ -23,7 +23,6 @@ group :jekyll_plugins do
   gem 'jekyll-sitemap', '~> 1.4'
   gem 'jekyll-compose', '~> 0.12.0'
   gem 'jekyll-postfiles', '~> 3.1'
-  gem 'jekyll-jalali'
   gem 'jekyll-toc'
   gem 'tzinfo', platforms: [:mingw, :x64_mingw, :mswin, :mswin64, :jruby]
   gem 'tzinfo-data', platforms: [:mingw, :x64_mingw, :mswin, :mswin64, :jruby]
