@@ -49,7 +49,7 @@ layout: compress
           {% if page.date %}
           <div class="post-meta">
             <time class="header-date" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-              {% assign date_format = site.minima.date_format | default: "%d %b، %Y" %}{{ page.date }}
+              {% assign date_format = site.minima.date_format | default: "%d %b، %Y" %}{{ page.date | date: date_format }}
             </time>
             <span itemprop="author" itemscope itemtype="https://schema.org/Person">
               <span itemprop="name">{{ site.author.name }}</span>
