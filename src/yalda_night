@@ -1,0 +1,358 @@
+#!/usr/bin/env python3
+"""
+Yalda Night ASCII Animation
+Cross-platform terminal animation for celebrating Shab-e Yalda
+
+Works on Linux, macOS, and Windows
+Based on: ascii-christmas-tree by Dave Eddy
+"""
+
+import os
+import sys
+import time
+import random
+import shutil
+from datetime import datetime
+
+# Check if running on Windows
+IS_WINDOWS = sys.platform.startswith('win')
+
+if IS_WINDOWS:
+    import msvcrt
+    import ctypes
+    
+    # Enable ANSI escape sequences on Windows
+    kernel32 = ctypes.windll.kernel32
+    kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
+else:
+    import tty
+    import termios
+
+# ANSI color codes
+class Colors:
+    # Reset
+    RESET = '\033[0m'
+    
+    # Pomegranate colors
+    POMEGRANATE = '\033[38;5;88m'
+    POMEGRANATE_SHELL = '\033[38;5;94m'
+    
+    # Seed colors (for animation)
+    SEED_COLORS = [
+        '\033[38;5;196m',  # bright red
+        '\033[38;5;202m',  # orange-red
+        '\033[38;5;198m',  # pink
+        '\033[38;5;124m',  # dark red
+    ]
+    
+    # Fire colors
+    FIRE_COLORS = [
+        '\033[38;5;226m',  # bright yellow
+        '\033[38;5;220m',  # yellow
+        '\033[38;5;214m',  # orange-yellow
+        '\033[38;5;208m',  # orange
+        '\033[38;5;202m',  # orange-red
+        '\033[38;5;196m',  # red
+    ]
+    
+    # Wood colors
+    WOOD_BROWN = '\033[38;5;94m'
+    WOOD_DARK = '\033[38;5;58m'
+    
+    # Moon color
+    MOON = '\033[38;5;228m'
+    
+    # Sign colors
+    SIGN_BORDER = '\033[38;5;130m'
+    SIGN_RED = '\033[38;5;208m'
+    SIGN_TEXT = '\033[38;5;223m'
+    SIGN_GREEN = '\033[38;5;118m'
+    
+    # Snowflake colors
+    SNOW_COLORS = [
+        '\033[0m',
+        '\033[38;5;238m',
+        '\033[38;5;99m',
+        '\033[38;5;241m',
+        '\033[38;5;96m',
+    ]
+
+# ASCII Art
+POMEGRANATE = """       \\      |      /
+        \\ 0 1 | 2 1 /
+         \\ 2  |  3 /
+          \\ 1 | 2 /
+        ___\\ 3 0 /___
+       / 1 0 2 1 0 3 \\
+      / 2  1 0 3 1  2 \\
+     | 0 3  2 1 0  2 1 |
+     | 1 0 2  3 1 0  3 |
+     | 2 1  0 2  1 3 0 |
+      \\ 3 0  1 2 0  1 /
+       \\ 1  2 0  3 2 /
+        '. 0 1 3 1 .'
+          '-------'
+            |||||
+           |||||||"""
+
+FIRE_FRAMES = [
+    """       A B  C 
+        A B C 
+       B C A B 
+      A B C B A 
+      =========
+     //--|  |--\\\\
+    ///--|| ||--\\\\\\
+   ////---|  |---\\\\\\\\""",
+    
+    """        B   C 
+       C B A B 
+      B A C B C 
+     A C B A C B 
+      =========
+     //--|  |--\\\\
+    ///--|| ||--\\\\\\
+   ////---|  |---\\\\\\\\""",
+    
+    """     C  B  A 
+      B A C B 
+     C B A B C 
+    B C A C B A 
+      =========
+     //--|  |--\\\\
+    ///--|| ||--\\\\\\
+   ////---|  |---\\\\\\\\"""
+]
+
+SIGN = f"""{Colors.SIGN_BORDER}  ┌─────────────────────┐
+{Colors.SIGN_BORDER}  │{Colors.SIGN_RED}   Yalda Mobarak!  {Colors.SIGN_BORDER}  │
+{Colors.SIGN_BORDER}  │{Colors.SIGN_TEXT}   شب یلدا مبارک   {Colors.SIGN_BORDER}  │
+{Colors.SIGN_BORDER}  │{Colors.SIGN_GREEN}  Longest Night 🌙 {Colors.SIGN_BORDER}  │
+{Colors.SIGN_BORDER}  └───────┬─┬───────────┘
+{Colors.SIGN_BORDER}          │ │
+{Colors.SIGN_BORDER}          │ │
+{Colors.SIGN_BORDER}         /└─┘\\
+"""
+
+MOON = """  _.._
+ .' .-'`
+/  /
+|  |
+\\  '.___.;
+ '._  _.'
+    ``"""
+
+class YaldaAnimation:
+    def __init__(self, sleep_time=0.15, snow_chars='*.'):
+        self.sleep_time = sleep_time
+        self.snow_chars = list(snow_chars)
+        self.snowflakes = []
+        self.settled_snow = []  # برف‌های جمع شده پایین
+        self.light_idx = 0
+        self.fire_idx = 0
+        self.frames = 0
+        
+        # Get terminal size
+        self.update_terminal_size()
+        
+    def update_terminal_size(self):
+        size = shutil.get_terminal_size()
+        self.cols = size.columns
+        self.lines = size.lines
+        
+    def clear_screen(self):
+        if IS_WINDOWS:
+            os.system('cls')
+        else:
+            print('\033[2J\033[H', end='', flush=True)
+    
+    def hide_cursor(self):
+        print('\033[?25l', end='', flush=True)
+    
+    def show_cursor(self):
+        print('\033[?25h', end='', flush=True)
+    
+    def move_cursor(self, row, col):
+        print(f'\033[{row+1};{col+1}H', end='', flush=True)
+    
+    def colorize_pomegranate(self, text):
+        """Apply colors to pomegranate seeds"""
+        # Replace shell characters
+        text = text.replace('\\', f'{Colors.POMEGRANATE_SHELL}\\{Colors.POMEGRANATE}')
+        text = text.replace('/', f'{Colors.POMEGRANATE_SHELL}/{Colors.POMEGRANATE}')
+        text = text.replace('|', f'{Colors.POMEGRANATE_SHELL}|{Colors.POMEGRANATE}')
+        
+        # Replace seeds with colored dots
+        text = text.replace(' 0 ', f' {Colors.SEED_COLORS[self.light_idx % 4]}●{Colors.POMEGRANATE} ')
+        text = text.replace(' 1 ', f' {Colors.SEED_COLORS[(self.light_idx + 1) % 4]}●{Colors.POMEGRANATE} ')
+        text = text.replace(' 2 ', f' {Colors.SEED_COLORS[(self.light_idx + 2) % 4]}●{Colors.POMEGRANATE} ')
+        text = text.replace(' 3 ', f' {Colors.SEED_COLORS[(self.light_idx + 3) % 4]}●{Colors.POMEGRANATE} ')
+        
+        return Colors.POMEGRANATE + text + Colors.RESET
+    
+    def colorize_fire(self, text):
+        """Apply colors to fire animation"""
+        # Replace flames
+        text = text.replace(' A ', f' {Colors.FIRE_COLORS[self.fire_idx % 6]}▲{Colors.RESET} ')
+        text = text.replace(' B ', f' {Colors.FIRE_COLORS[(self.fire_idx + 2) % 6]}▲{Colors.RESET} ')
+        text = text.replace(' C ', f' {Colors.FIRE_COLORS[(self.fire_idx + 4) % 6]}▲{Colors.RESET} ')
+        
+        # Replace wood
+        text = text.replace('/', f'{Colors.WOOD_BROWN}/')
+        text = text.replace('\\', f'{Colors.WOOD_BROWN}\\')
+        text = text.replace('|', f'{Colors.WOOD_DARK}|')
+        text = text.replace('-', f'{Colors.WOOD_DARK}-')
+        text = text.replace('=', f'{Colors.WOOD_BROWN}=')
+        
+        return text + Colors.RESET
+    
+    def draw_text_at(self, x, y, text):
+        """Draw multi-line text at position"""
+        lines = text.split('\n')
+        for i, line in enumerate(lines):
+            if y + i < self.lines and x < self.cols:
+                self.move_cursor(y + i, x)
+                print(line, end='', flush=True)
+    
+    def update_snowflakes(self):
+        """Update and draw snowflakes"""
+        # Clear old snowflakes (only moving ones)
+        for flake in self.snowflakes[:]:
+            x, y, color, char = flake
+            if 0 <= y < self.lines and 0 <= x < self.cols:
+                self.move_cursor(y, x)
+                print(' ', end='', flush=True)
+        
+        # Move snowflakes down
+        new_snowflakes = []
+        for flake in self.snowflakes:
+            x, y, color, char = flake
+            y += 1
+            if y < self.lines - 1:  # اگه به آخر نرسیده ادامه بده
+                new_snowflakes.append((x, y, color, char))
+            else:
+                # برف به پایین رسیده، به لیست settled اضافه کن
+                self.settled_snow.append((x, self.lines - 1, color, char))
+        
+        # Add new snowflake
+        if random.random() > 0.3:
+            x = random.randint(0, self.cols - 1)
+            color = random.choice(Colors.SNOW_COLORS)
+            char = random.choice(self.snow_chars)
+            new_snowflakes.append((x, 0, color, char))
+        
+        # Draw settled snow (برف‌های جمع شده)
+        for flake in self.settled_snow:
+            x, y, color, char = flake
+            if 0 <= y < self.lines and 0 <= x < self.cols:
+                self.move_cursor(y, x)
+                print(f'{color}{char}{Colors.RESET}', end='', flush=True)
+        
+        # Draw moving snowflakes
+        for flake in new_snowflakes:
+            x, y, color, char = flake
+            if 0 <= y < self.lines and 0 <= x < self.cols:
+                self.move_cursor(y, x)
+                print(f'{color}{char}{Colors.RESET}', end='', flush=True)
+        
+        self.snowflakes = new_snowflakes
+    
+    def run(self):
+        """Main animation loop"""
+        try:
+            self.hide_cursor()
+            self.clear_screen()
+            
+            while True:
+                self.update_terminal_size()
+                
+                # Calculate positions
+                pom_lines = POMEGRANATE.split('\n')
+                pom_height = len(pom_lines)
+                pom_width = 22
+                
+                fire_lines = FIRE_FRAMES[0].split('\n')
+                fire_height = len(fire_lines)
+                
+                sign_lines = SIGN.split('\n')
+                sign_height = len(sign_lines)
+                
+                # Positions
+                pom_x = 5
+                pom_y = self.lines - pom_height - 1
+                
+                fire_x = 5 + pom_width + 8
+                fire_y = self.lines - fire_height - 1
+                
+                sign_x = 5 + pom_width + 31
+                sign_y = self.lines - sign_height - 1
+                
+                moon_x = self.cols - 20
+                moon_y = 3
+                
+                # Update snowflakes first
+                self.update_snowflakes()
+                
+                # Draw pomegranate
+                pom_text = self.colorize_pomegranate(POMEGRANATE)
+                self.draw_text_at(pom_x, pom_y, pom_text)
+                
+                # Draw fire
+                fire_frame = FIRE_FRAMES[self.frames % 3]
+                fire_text = self.colorize_fire(fire_frame)
+                self.draw_text_at(fire_x, fire_y, fire_text)
+                
+                # Draw sign
+                self.draw_text_at(sign_x, sign_y, SIGN)
+                
+                # Draw moon
+                moon_text = Colors.MOON + MOON + Colors.RESET
+                if moon_x > 0:
+                    self.draw_text_at(moon_x, moon_y, moon_text)
+                
+                # Update animation indices
+                self.frames += 1
+                if self.frames % 5 == 0:
+                    self.light_idx += 1
+                if self.frames % 2 == 0:
+                    self.fire_idx += 1
+                
+                time.sleep(self.sleep_time)
+                
+        except KeyboardInterrupt:
+            pass
+        finally:
+            self.show_cursor()
+            self.clear_screen()
+
+def main():
+    """Main entry point"""
+    import argparse
+    
+    parser = argparse.ArgumentParser(
+        description='Yalda Night ASCII Animation - Cross-platform terminal celebration'
+    )
+    parser.add_argument(
+        '-s', '--speed',
+        type=float,
+        default=0.15,
+        help='Animation speed in seconds (default: 0.15)'
+    )
+    parser.add_argument(
+        '-c', '--chars',
+        type=str,
+        default='*.',
+        help='Characters to use for snowflakes (default: "*.")'
+    )
+    
+    args = parser.parse_args()
+    
+    print("Starting Yalda Night Animation...")
+    print("Press Ctrl+C to exit")
+    time.sleep(1)
+    
+    animation = YaldaAnimation(sleep_time=args.speed, snow_chars=args.chars)
+    animation.run()
+
+if __name__ == '__main__':
+    main()
