@@ -41,6 +41,10 @@ FIRE_COLORS=(
 )
 FIRE_COLORS_LEN=${#FIRE_COLORS[@]}
 
+# wood colors
+WOOD_COLOR=$(tput setaf 94)   # brown
+WOOD_DARK=$(tput setaf 58)    # dark brown
+
 # open pomegranate ASCII art - bigger bottom
 IFS= read -r -d '' POMEGRANATE <<-"EOF"
        \      |      /
@@ -69,9 +73,10 @@ IFS= read -r -d '' FIRE1 <<-"EOF"
         A B C 
        B C A B 
       A B C B A 
-      ---------
-     |         |
-     |         |
+      =========
+     //--|  |--\\
+    ///--|| ||--\\\
+   ////---|  |---\\\\
 EOF
 
 IFS= read -r -d '' FIRE2 <<-"EOF"
@@ -79,9 +84,10 @@ IFS= read -r -d '' FIRE2 <<-"EOF"
        C B A B 
       B A C B C 
      A C B A C B 
-      ---------
-     |         |
-     |         |
+      =========
+     //--|  |--\\
+    ///--|| ||--\\\
+   ////---|  |---\\\\
 EOF
 
 IFS= read -r -d '' FIRE3 <<-"EOF"
@@ -89,12 +95,13 @@ IFS= read -r -d '' FIRE3 <<-"EOF"
       B A C B 
      C B A B C 
     B C A C B A 
-      ---------
-     |         |
-     |         |
+      =========
+     //--|  |--\\
+    ///--|| ||--\\\
+   ////---|  |---\\\\
 EOF
 
-FIRE_HEIGHT=7
+FIRE_HEIGHT=8
 
 c=$(tput setaf 130)
 IFS= read -r -d '' SIGN <<- EOF
@@ -284,6 +291,12 @@ main() {
 		f=${f// A / ${FIRE_COLORS[(fireidx) % FIRE_COLORS_LEN]}▲$(tput sgr0) }
 		f=${f// B / ${FIRE_COLORS[(fireidx + 2) % FIRE_COLORS_LEN]}▲$(tput sgr0) }
 		f=${f// C / ${FIRE_COLORS[(fireidx + 4) % FIRE_COLORS_LEN]}▲$(tput sgr0) }
+		# colorize wood
+		f=${f//\//$(tput setaf 94)\/}
+		f=${f//\\/$(tput setaf 94)\\}
+		f=${f//\|/$(tput setaf 58)\|}
+		f=${f//\-/$(tput setaf 58)-}
+		f=${f//=/$(tput setaf 94)=}
 
 		# display the fire
 		x=$((5 + POMEGRANATE_WIDTH + 8))
@@ -295,7 +308,7 @@ main() {
 		done <<< "$f"
 
 		# display the sign
-		x=$((5 + POMEGRANATE_WIDTH + 25))
+		x=$((5 + POMEGRANATE_WIDTH + 31))
 		y=$((LINES - SIGN_HEIGHT - 1))
 		while IFS= read -r line; do
 			tput cup "$y" "$x"
