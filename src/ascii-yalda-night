@@ -1,0 +1,351 @@
+#!/usr/bin/env bash
+#
+# Original Script: https://github.com/bahamas10/xmas.ysap.sh
+# Create a Yalda Night celebration on the terminal.
+#
+# 2025 Edition - Shab-e Yalda Special
+#
+# Based on: ascii-christmas-tree by Dave Eddy
+# Modified for: Yalda Night celebration
+# License: MIT
+
+# colors
+COLOR_POMEGRANATE=$(tput setaf 88)
+COLOR_SEEDS=$(tput setaf 196)
+COLOR_RST=$(tput sgr0)
+
+# persian theme colors
+COLOR1=$'\e[38;5;196m'  # red
+COLOR2=$'\e[38;5;208m'  # orange
+COLOR3=$'\e[38;5;118m'  # green
+COLOR4=$'\e[38;5;241m'  # dim
+COLOR5=$'\e[38;5;223m'  # off-white (text)
+
+# pomegranate seeds lights
+COLOR_LIGHTS=(
+	"$(tput setaf 196)"  # bright red
+	"$(tput setaf 202)"  # orange-red
+	"$(tput setaf 198)"  # pink
+	"$(tput setaf 124)"  # dark red
+)
+COLOR_LIGHTS_LEN=${#COLOR_LIGHTS[@]}
+
+# fire/flame colors
+FIRE_COLORS=(
+	"$(tput setaf 226)"  # bright yellow
+	"$(tput setaf 220)"  # yellow
+	"$(tput setaf 214)"  # orange-yellow
+	"$(tput setaf 208)"  # orange
+	"$(tput setaf 202)"  # orange-red
+	"$(tput setaf 196)"  # red
+)
+FIRE_COLORS_LEN=${#FIRE_COLORS[@]}
+
+# open pomegranate ASCII art - bigger bottom
+IFS= read -r -d '' POMEGRANATE <<-"EOF"
+       \      |      /
+        \ 0 1 | 2 1 /
+         \ 2  |  3 /
+          \ 1 | 2 /
+        ___\ 3 0 /___
+       / 1 0 2 1 0 3 \
+      / 2  1 0 3 1  2 \
+     | 0 3  2 1 0  2 1 |
+     | 1 0 2  3 1 0  3 |
+     | 2 1  0 2  1 3 0 |
+      \ 3 0  1 2 0  1 /
+       \ 1  2 0  3 2 /
+        '. 0 1 3 1 .'
+          '-------'
+            |||||
+           |||||||
+EOF
+POMEGRANATE_HEIGHT=16
+POMEGRANATE_WIDTH=22
+
+# fire animation - 3 frames for flickering effect
+IFS= read -r -d '' FIRE1 <<-"EOF"
+       A B  C 
+        A B C 
+       B C A B 
+      A B C B A 
+      ---------
+     |         |
+     |         |
+EOF
+
+IFS= read -r -d '' FIRE2 <<-"EOF"
+        B   C 
+       C B A B 
+      B A C B C 
+     A C B A C B 
+      ---------
+     |         |
+     |         |
+EOF
+
+IFS= read -r -d '' FIRE3 <<-"EOF"
+     C  B  A 
+      B A C B 
+     C B A B C 
+    B C A C B A 
+      ---------
+     |         |
+     |         |
+EOF
+
+FIRE_HEIGHT=7
+
+c=$(tput setaf 130)
+IFS= read -r -d '' SIGN <<- EOF
+$c  ┌─────────────────────┐
+$c  │$COLOR2   Yalda Mobarak!  $c  │
+$c  │$COLOR5   شب یلدا مبارک   $c  │
+$c  │$COLOR3  Longest Night 🌙 $c  │
+$c  └───────┬─┬───────────┘
+$c          │ │
+$c          │ │
+$c         /└─┘\\
+
+EOF
+SIGN_HEIGHT=8
+
+# moon for the longest night
+MOON_COLOR=$(tput setaf 228)
+IFS= read -r -d '' MOON <<- "EOF"
+  _.._
+ .' .-'`
+/  /
+|  |
+\  '.___.;
+ '._  _.'
+    ``
+EOF
+
+TIMER=-1
+SNOWFLAKES=('*' '.')
+SNOWFLAKE_COLORS=(
+	"$(tput sgr0)"
+	"$(tput setaf 238)"
+	"$(tput setaf 99)"
+	"$(tput setaf 241)"
+	"$(tput setaf 96)"
+)
+
+SLEEP_TIME=.15
+
+tput() {
+	local VERSION='bash tput (1.0.0)'
+
+	local opt OPTIND OPTARG
+	while getopts 'ST:V' opt; do
+		case "$opt" in
+			S) command tput "$@"; return $?;;
+			T) true;;
+			V) echo "$VERSION"; return 0;;
+		esac
+	done
+	shift "$((OPTIND - 1))"
+
+	local ESC=$'\x1b'
+	case "$1" in
+		bel) echo -n $'\x7';;
+		sgr0 | me) echo -n "$ESC[0m";;
+		bold) echo -n "$ESC[1m";;
+		dim) echo -n "$ESC[2m";;
+		rev) echo -n "$ESC[7m";;
+		blink) echo -n "$ESC[5m";;
+		setaf | AF) echo -n "$ESC[38;5;$2m";;
+		setab | AB) echo -n "$ESC[48;5;$2m";;
+		sc) echo -n "${ESC}7";;
+		rc) echo -n "${ESC}8";;
+		cnorm) echo -n "$ESC[?25h";;
+		civis) echo -n "$ESC[?25l";;
+		smcup) echo -n "$ESC[?1049h";;
+		rmcup) echo -n "$ESC[?1049l";;
+		clear) echo -n "$ESC[H$ESC[2J";;
+		home) echo -n "$ESC[H";;
+		cuu) echo -n "$ESC[$2A";;
+		cud) echo -n "$ESC[$2B";;
+		cuf) echo -n "$ESC[$2C";;
+		cub) echo -n "$ESC[$2D";;
+		cup)
+			local row=$(($2 + 1))
+			local col=$(($3 + 1))
+			echo -n "$ESC[$row;${col}H";;
+		*) command tput "$@"; return $?;;
+	esac
+}
+
+get-msecs() {
+	local secs usecs
+	IFS=. read -r secs usecs <<< "$EPOCHREALTIME"
+	local msecs=$((10#$usecs / 1000))
+	printf '%d%03d' "$secs" "$msecs"
+}
+
+cleanup() {
+	tput rmcup
+	tput cnorm
+}
+
+usage() {
+	local IFS=
+	cat <<-EOF
+	Usage: ./ascii-yalda-night [options]
+
+	Options:
+	  -h         print this message and exit
+	  -s <num>   time between frames in seconds, default is $SLEEP_TIME
+	  -c <chars> character(s) to use for snowflakes, defaults to ${SNOWFLAKES[*]}
+
+	Celebrating Yalda Night - The Longest Night of the Year
+	With Open Pomegranate and Animated Fire
+	Credits:
+	  - Based on ascii-christmas-tree by Dave Eddy
+	  - Moon ascii art by jgs (asciiart.eu)
+	EOF
+}
+
+main() {
+	local OPTIND OPTARG opt i
+	while getopts 'c:hs:' opt; do
+		case "$opt" in
+			c)
+				SNOWFLAKES=()
+				for ((i = 0; i < ${#OPTARG}; i++)); do
+					local c=${OPTARG:i:1}
+					SNOWFLAKES+=("$c")
+				done
+				;;
+			s) SLEEP_TIME=$OPTARG;;
+			h) usage; exit 0;;
+			*) usage >&2; exit 1;;
+		esac
+	done
+
+	# configure terminal for drawing
+	trap cleanup exit
+	tput smcup
+	tput civis
+
+	# figure out our size
+	COLUMNS=$(tput cols)
+	LINES=$(tput lines)
+
+	local lightidx=0
+	local fireidx=0
+	local snowflakes=()
+	local t x y c i col
+	local snowflake
+	local frames=0
+	local fire_frame
+	
+	while true; do
+		# clear snowflakes
+		for ((i = 0; i < "${#snowflakes[@]}"; i++)); do
+			snowflake=${snowflakes[i]}
+			read -r x y col c <<< "$snowflake"
+			tput cup "$y" "$x"
+			echo -n ' '
+		done
+
+		# select fire frame
+		case $((frames % 3)) in
+			0) fire_frame=$FIRE1;;
+			1) fire_frame=$FIRE2;;
+			2) fire_frame=$FIRE3;;
+		esac
+
+		# stylize and colorize pomegranate
+		t=$COLOR_POMEGRANATE$POMEGRANATE
+		# colorize the outer shell parts
+		t=${t//\\/$(tput setaf 94)\\$(tput setaf 88)}
+		t=${t//\//$(tput setaf 94)\/$(tput setaf 88)}
+		t=${t//\|/$(tput setaf 94)\|$(tput setaf 88)}
+		# pomegranate seeds (animated lights)
+		t=${t// 0 / ${COLOR_LIGHTS[lightidx % COLOR_LIGHTS_LEN]}●${COLOR_POMEGRANATE} }
+		t=${t// 1 / ${COLOR_LIGHTS[(lightidx + 1) % COLOR_LIGHTS_LEN]}●${COLOR_POMEGRANATE} }
+		t=${t// 2 / ${COLOR_LIGHTS[(lightidx + 2) % COLOR_LIGHTS_LEN]}●${COLOR_POMEGRANATE} }
+		t=${t// 3 / ${COLOR_LIGHTS[(lightidx + 3) % COLOR_LIGHTS_LEN]}●${COLOR_POMEGRANATE} }
+
+		# display the pomegranate
+		x=5
+		y=$((LINES - POMEGRANATE_HEIGHT - 1))
+		while IFS= read -r line; do
+			tput cup "$y" "$x"
+			echo -n "$line"
+			((y++))
+		done <<< "$t"
+
+		# animate and colorize fire
+		local f=$fire_frame
+		# animate flames with different colors
+		f=${f// A / ${FIRE_COLORS[(fireidx) % FIRE_COLORS_LEN]}▲$(tput sgr0) }
+		f=${f// B / ${FIRE_COLORS[(fireidx + 2) % FIRE_COLORS_LEN]}▲$(tput sgr0) }
+		f=${f// C / ${FIRE_COLORS[(fireidx + 4) % FIRE_COLORS_LEN]}▲$(tput sgr0) }
+
+		# display the fire
+		x=$((5 + POMEGRANATE_WIDTH + 8))
+		y=$((LINES - FIRE_HEIGHT - 1))
+		while IFS= read -r line; do
+			tput cup "$y" "$x"
+			echo -n "$line"
+			((y++))
+		done <<< "$f"
+
+		# display the sign
+		x=$((5 + POMEGRANATE_WIDTH + 25))
+		y=$((LINES - SIGN_HEIGHT - 1))
+		while IFS= read -r line; do
+			tput cup "$y" "$x"
+			echo -n "$line"
+			((y++))
+		done <<< "$SIGN"
+
+		# display the moon (for the longest night!)
+		x=$((COLUMNS - 20))
+		y=3
+		while IFS= read -r line; do
+			tput cup "$y" "$x"
+			echo -n "$MOON_COLOR$line"
+			((y++))
+		done <<< "$MOON"
+
+		# simulate the snowfall
+		for ((i = 0; i < "${#snowflakes[@]}"; i++)); do
+			snowflake=${snowflakes[i]}
+			read -r x y col c <<< "$snowflake"
+			((y++))
+			tput cup "$y" "$x"
+			echo -n "$col$c$COLOR_RST"
+			if ((y > LINES)); then
+				unset snowflakes[i]
+				continue
+			fi
+			snowflakes[i]="$x $y $col $c"
+		done
+		snowflakes=("${snowflakes[@]}")
+
+		# add a snowflake
+		snowflakes+=(
+			"$((RANDOM % COLUMNS)) \
+			0 \
+			${SNOWFLAKE_COLORS[RANDOM % ${#SNOWFLAKE_COLORS[@]}]} \
+			${SNOWFLAKES[RANDOM % ${#SNOWFLAKES[@]}]}"
+		)
+
+		# increment animations
+		((frames++))
+		if ((frames % 5 == 0)); then
+			((lightidx++))
+		fi
+		if ((frames % 2 == 0)); then
+			((fireidx++))
+		fi
+
+		sleep "$SLEEP_TIME"
+	done
+}
+
+main "$@"
