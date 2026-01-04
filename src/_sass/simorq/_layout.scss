@@ -37,26 +37,9 @@
     }
     .mode-moon {
       display: block;
-      line {
-        stroke: $black;
-        fill: none;
-      }
-
-      circle {
-        fill: $black;
-        stroke: $black;
-      }
     }
     .mode-sunny {
       display: none;
-      line {
-        stroke: $dark-white;
-        fill: none;
-      }
-      circle {
-        fill: none;
-        stroke: $dark-white;
-      }
     }
   }
 

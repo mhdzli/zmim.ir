@@ -10,6 +10,8 @@ source "https://rubygems.org"
 # Happy Jekylling!
 gem "jekyll", "~> 4.3.2"
 gem "webrick"
+gem "csv"
+gem "base64"
 
 # Fix for mismatched deps: https://github.com/ffi/ffi/issues/1103
 gem "ffi", "< 1.17.0"
