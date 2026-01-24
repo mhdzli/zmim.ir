@@ -32,8 +32,8 @@ group :jekyll_plugins do
   gem 'jekyll-compose', '~> 0.12.0'
   gem 'jekyll-postfiles', '~> 3.1'
   gem 'jekyll-toc'
-  gem 'tzinfo', platforms: [:mingw, :x64_mingw, :mswin, :mswin64, :jruby]
-  gem 'tzinfo-data', platforms: [:mingw, :x64_mingw, :mswin, :mswin64, :jruby]
+  gem 'tzinfo', platforms: [:windows, :jruby]
+  gem 'tzinfo-data', platforms: [:windows, :jruby]
 end
 
 # Windows does not include zoneinfo files, so bundle tzinfo and tzinfo-data gems
