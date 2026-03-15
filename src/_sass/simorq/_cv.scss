@@ -1,0 +1,359 @@
+// CV Page Styles
+
+.cv-wrapper {
+  max-width: $wide-size;
+  margin: 0 auto;
+  padding: $spacing-full;
+
+  @include media-query($on-mobile) {
+    padding: $spacing-half;
+  }
+}
+
+.cv-header {
+  border-bottom: 2px solid $light;
+  padding-bottom: $spacing-half;
+  margin-bottom: $spacing-full;
+
+  .cv-name {
+    font-size: 2em;
+    font-weight: $bold-weight;
+    color: $black;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+}
+
+.cv-body {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  gap: $spacing-full;
+
+  @include media-query($on-mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cv-sidebar {
+  border-right: 1px solid $light;
+  padding-right: $spacing-full;
+
+  @include media-query($on-mobile) {
+    border-right: none;
+    border-bottom: 1px solid $light;
+    padding-right: 0;
+    padding-bottom: $spacing-half;
+  }
+}
+
+.cv-section-title {
+  font-size: $small-font-size;
+  font-weight: $bold-weight;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: $gray;
+  margin-top: $spacing-half;
+  margin-bottom: 8px;
+}
+
+// Sidebar sections
+.cv-contact {
+  margin-bottom: $spacing-half;
+
+  .cv-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+
+    i, svg {
+      width: 14px;
+      min-width: 14px;
+      color: $gray;
+    }
+
+    a {
+      font-size: $small-font-size;
+      color: $text-base-color;
+      text-decoration: none;
+      word-break: break-all;
+
+      &:hover {
+        color: $text-link-blue;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.cv-languages,
+.cv-education,
+.cv-skills {
+  margin-bottom: $spacing-half;
+}
+
+.cv-idiom,
+.cv-skill {
+  font-size: $small-font-size;
+  color: $text-base-color;
+  padding: 2px 0;
+}
+
+.cv-education-item {
+  margin-bottom: 12px;
+
+  .cv-degree {
+    font-size: $small-font-size;
+    font-weight: $bold-weight;
+    color: $text-base-color;
+  }
+
+  .cv-university {
+    font-size: $small-font-size;
+    color: $text-base-color;
+  }
+
+  .cv-time {
+    font-size: $small-font-size;
+    color: $gray;
+  }
+}
+
+// Main content sections
+.cv-main-title {
+  font-size: $medium-font-size;
+  font-weight: $bold-weight;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: $text-link-blue;
+  margin-top: $spacing-half;
+  margin-bottom: $spacing-half;
+  padding-bottom: 4px;
+  border-bottom: 1px solid $light;
+  display: flex;
+  align-items: center;
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid $light;
+    margin: auto;
+  }
+
+  &::before {
+    margin-right: 10px;
+  }
+
+  &::after {
+    margin-left: 10px;
+  }
+}
+
+.cv-career-profile {
+  margin-bottom: $spacing-full;
+
+  .cv-profile-heading {
+    font-weight: $bold-weight;
+    color: $text-base-color;
+    margin-bottom: 8px;
+  }
+
+  .cv-profile-details {
+    font-size: $small-font-size;
+    color: $text-base-color;
+    line-height: $base-line-height;
+  }
+}
+
+.cv-experience,
+.cv-projects,
+.cv-publications,
+.cv-volunteering {
+  margin-bottom: $spacing-full;
+}
+
+.cv-experience-item,
+.cv-volunteering-item {
+  margin-bottom: $spacing-half;
+  padding-bottom: $spacing-half;
+  border-bottom: 1px dashed $light;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .cv-role {
+    font-weight: $bold-weight;
+    color: $text-base-color;
+  }
+
+  .cv-company,
+  .cv-organization {
+    font-size: $small-font-size;
+    font-weight: $bold-weight;
+    color: $gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    .cv-time {
+      font-weight: $normal-weight;
+      color: $gray;
+      font-style: italic;
+    }
+  }
+
+  .cv-details {
+    font-size: $small-font-size;
+    color: $text-base-color;
+    margin-top: 4px;
+    white-space: pre-line;
+  }
+
+  .cv-technologies {
+    font-size: $small-font-size;
+    color: $gray;
+    margin-top: 4px;
+    white-space: pre-line;
+  }
+}
+
+.cv-project-item {
+  margin-bottom: 10px;
+  font-size: $small-font-size;
+
+  .cv-project-link {
+    font-weight: $bold-weight;
+    color: $text-link-blue;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .cv-details {
+    color: $text-base-color;
+  }
+}
+
+.cv-publication-item {
+  margin-bottom: $spacing-half;
+
+  .cv-publication-title a {
+    font-weight: $bold-weight;
+    font-size: $small-font-size;
+    color: $text-link-blue;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .cv-authors,
+  .cv-conference {
+    font-size: $small-font-size;
+    color: $gray;
+  }
+}
+
+// Dark mode overrides
+body[data-theme="dark"] {
+  .cv-header {
+    border-bottom-color: $dark-light;
+
+    .cv-name {
+      color: $dark-white;
+    }
+  }
+
+  .cv-sidebar {
+    border-right-color: $dark-light;
+
+    @include media-query($on-mobile) {
+      border-bottom-color: $dark-light;
+    }
+  }
+
+  .cv-section-title {
+    color: $dark-gray;
+  }
+
+  .cv-contact .cv-contact-item {
+    i, svg {
+      color: $dark-gray;
+    }
+
+    a {
+      color: $dark-text-base-color;
+
+      &:hover {
+        color: $dark-text-link-blue;
+      }
+    }
+  }
+
+  .cv-idiom,
+  .cv-skill,
+  .cv-degree,
+  .cv-university,
+  .cv-time,
+  .cv-profile-heading,
+  .cv-profile-details,
+  .cv-role,
+  .cv-details,
+  .cv-technologies {
+    color: $dark-text-base-color;
+  }
+
+  .cv-main-title {
+    color: $dark-text-link-blue;
+    border-bottom-color: $dark-light;
+
+    &::before,
+    &::after {
+      border-bottom-color: $dark-light;
+    }
+  }
+
+  .cv-company,
+  .cv-organization,
+  .cv-time,
+  .cv-authors,
+  .cv-conference {
+    color: $dark-gray;
+  }
+
+  .cv-experience-item,
+  .cv-volunteering-item {
+    border-bottom-color: $dark-light;
+  }
+
+  .cv-project-link,
+  .cv-publication-title a {
+    color: $dark-text-link-blue;
+  }
+
+  .cv-project-item .cv-details {
+    color: $dark-text-base-color;
+  }
+}
+
+// Print styles
+@media print {
+  .navbar,
+  .footer {
+    display: none;
+  }
+
+  .cv-wrapper {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .cv-body {
+    grid-template-columns: 1fr 2.5fr;
+  }
+}

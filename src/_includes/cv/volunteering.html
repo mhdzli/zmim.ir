@@ -1,0 +1,18 @@
+{% if site.active_lang == 'fa' %}{% assign cv = site.data.cv_fa %}{% else %}{% assign cv = site.data.cv %}{% endif %}
+{% assign t = site.data.locales[site.active_lang] %}
+{% assign volunteering = cv.volunteering %}
+{% if volunteering %}
+<section class="cv-volunteering">
+    <h2 class="cv-main-title">{{ t.cv_volunteering }}</h2>
+    {% for vol in volunteering %}
+        <div class="cv-volunteering-item">
+            <div class="cv-role">{{ vol.role }}</div>
+            <div class="cv-organization">
+                {{ vol.company }}
+                <span class="cv-time">{{ vol.time }}</span>
+            </div>
+            <div class="cv-details">{{ vol.details }}</div>
+        </div>
+    {% endfor %}
+</section>
+{% endif %}

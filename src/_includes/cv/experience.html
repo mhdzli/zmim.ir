@@ -1,0 +1,19 @@
+{% if site.active_lang == 'fa' %}{% assign cv = site.data.cv_fa %}{% else %}{% assign cv = site.data.cv %}{% endif %}
+{% assign t = site.data.locales[site.active_lang] %}
+{% assign experience = cv.experience %}
+{% if experience %}
+<section class="cv-experience">
+    <h2 class="cv-main-title">{{ t.cv_experience }}</h2>
+    {% for exp in experience %}
+        <div class="cv-experience-item">
+            <div class="cv-role">{{ exp.role }}</div>
+            <div class="cv-company">
+                {{ exp.company }}
+                <span class="cv-time">{{ exp.time }}</span>
+            </div>
+            <div class="cv-details">{{ exp.details }}</div>
+            <p class="cv-technologies"><strong>{{ t.cv_technologies }}</strong> {{ exp.technologies_used }}</p>
+        </div>
+    {% endfor %}
+</section>
+{% endif %}

@@ -1,0 +1,11 @@
+{% if site.active_lang == 'fa' %}{% assign cv = site.data.cv_fa %}{% else %}{% assign cv = site.data.cv %}{% endif %}
+{% assign t = site.data.locales[site.active_lang] %}
+{% assign languages = cv.languages %}
+{% if languages %}
+<section class="cv-languages">
+    <div class="cv-section-title">{{ t.cv_languages }}</div>
+    {% for lang in languages %}
+        <div class="cv-idiom">{{ lang.idiom }}</div>
+    {% endfor %}
+</section>
+{% endif %}

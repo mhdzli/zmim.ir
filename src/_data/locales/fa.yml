@@ -4,6 +4,19 @@ archive: بایگانی
 tags: برچسب‌ها
 wiki: ویکی
 about: درباره
+cv: رزومه
+
+# CV section titles
+cv_contact: تماس
+cv_languages: زبان‌ها
+cv_education: تحصیلات
+cv_skills: مهارت‌ها
+cv_career_profile: پروفایل شغلی
+cv_experience: تجربیات
+cv_projects: پروژه‌ها
+cv_publications: انتشارات
+cv_volunteering: فعالیت‌های داوطلبانه
+cv_technologies: "فناوری‌ها:"
 feed: خوراک
 
 # Content

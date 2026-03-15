@@ -4,6 +4,19 @@ archive: Archive
 tags: Tags
 wiki: Wiki
 about: About
+cv: CV
+
+# CV section titles
+cv_contact: Contact
+cv_languages: Languages
+cv_education: Education
+cv_skills: Skills
+cv_career_profile: Career Profile
+cv_experience: Experience
+cv_projects: Projects
+cv_publications: Publications
+cv_volunteering: Volunteering
+cv_technologies: "Technologies:"
 feed: Feed
 
 # Content

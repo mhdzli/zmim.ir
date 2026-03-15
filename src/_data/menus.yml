@@ -23,6 +23,11 @@
   url: /about/
   external: false
 
+- key: cv
+  icon: "far fa-id-card"
+  url: /cv/
+  external: false
+
 # Example:
 # - key: github
 #   icon: "fab fa-github"

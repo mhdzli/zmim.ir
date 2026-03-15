@@ -1,0 +1,139 @@
+name: محمد زینلی
+support_dark_mode: true
+fork: false
+
+# Sidebar
+contact:
+  email: irzmim@gmail.com
+  github: mhdzli
+  linkedin: zmim
+  phone:
+  gitlab:
+  twitter:
+  odysee: mzeinali
+  mastodon:
+    username: mzeinali
+    instance: https://fosstodon.org
+
+languages:
+  - idiom: انگلیسی
+  - idiom: فارسی
+
+education:
+  - degree: کارشناسی مهندسی برق (کنترل)
+    time: ۱۳۸۱–۱۳۸۶
+    university: دانشگاه علم و صنعت ایران
+
+skills:
+  - category: بک‌اند
+    skill:
+      - Python
+      - PHP
+  - category: فرانت‌اند
+    skill:
+      - Svelte
+      - Typescript
+  - category: DevOps
+    skill:
+      - Docker
+      - Kubernetes
+  - category: ابزارها
+    skill:
+      - GNU/Linux (Debian, Ubuntu, Arch)
+      - Git
+      - Vim / Neovim
+
+# Profile
+profile:
+  title: مدیر فناوری اطلاعات | مدیر سیستم | مهندس برق
+  details: >-
+    مدیر فناوری اطلاعات، مدیر سیستم و مهندس برق با سابقه در اتوماسیون صنعتی، محاسبات کارایی بالا (HPC) و مدیریت زیرساخت. بیش از ۱۵ سال تجربه در مهندسی برق، نظارت بر پروژه، مدیریت نگهداری و راهکارهای فناوری اطلاعات در حوزه‌های انرژی، نفت و گاز و دانشگاه. مسلط به سیستم‌های Linux/BSD، DevOps، مدیریت بار کاری HPC و برنامه‌نویسی به زبان‌های Python و C. علاقه‌مند به فناوری‌های متن‌باز، اتوماسیون و حل مسائل فنی.
+
+# Experience
+experience:
+  - role: مدیر ارشد فناوری اطلاعات
+    time: ۱۴۰۲–اکنون
+    company: شرکت ملی انتقال گاز ایران
+    details: |
+      مدیر ارشد فناوری اطلاعات
+    technologies_used: |
+      Windows Server, Zabbix, Cisco, Dell Powerstore and Unity, Active Directory, VmWare, ...
+
+  - role: سرپرست ابزار دقیق و اتوماسیون
+    time: ۱۳۹۹–۱۴۰۲
+    company: شرکت گاز پارس جنوبی
+    details: |
+      سرپرست مدیریت نگهداری، متخصص ابزار دقیق و اتوماسیون، نیروگاه مرکزی پارس جنوبی.
+      نصب، راه‌اندازی و نگهداری دستگاه‌های اندازه‌گیری دقیق و سیستم‌های کنترل، تضمین شرایط بهینه عملیاتی برای ماشین‌آلات و تجهیزات. انجام فرآیندهای کالیبراسیون، تشخیص خطا و تعمیر و نگهداری اصلاحی. تحلیل نقشه‌های مدار، مدیریت برنامه‌های نگهداری دوره‌ای و پیش‌بینی نیاز به قطعات یدکی. نظارت بر سیستم‌های ارتباطی بی‌سیم، تدوین دستورالعمل‌های عملیاتی و برگزاری دوره‌های آموزشی برای بهبود بهره‌وری تجهیزات.
+    technologies_used: |
+      Primavera, Mainta, Siemens TXP DCS, Wartsilla, Siemens V94.2 Gas Turbine, ...
+
+  - role: سرپرست ابزار دقیق و اتوماسیون
+    time: ۱۳۹۰–۱۳۹۹
+    company: شرکت ملی نفت ایران
+    details: |
+      سرپرست ابزار دقیق و کنترل، فاز چهاردهم پالایشگاه میدان گازی پارس جنوبی.
+      سرپرست ابزار دقیق و کنترل، نیروگاه مرکزی پارس جنوبی.
+      سرپرست مدیریت نگهداری، نیروگاه مرکزی پارس جنوبی.
+      نصب، راه‌اندازی و نگهداری دستگاه‌های اندازه‌گیری دقیق و سیستم‌های کنترل. تشخیص خطا، تعمیر و نگهداری اصلاحی و بهینه‌سازی عملکرد سیستم. مدیریت برنامه‌های نگهداری دوره‌ای، نظارت بر سیستم‌های ارتباطی بی‌سیم و همکاری میان‌بخشی برای بهینه‌سازی فرآیندهای صنعتی.
+    technologies_used: |
+      Primavera, Mainta, Siemens TXP DCS, Wartsilla, Siemens V94.2 Gas Turbine, Siemens PCS7 DCS, ...
+
+  - role: سرپرست علائم راه‌آهن
+    time: ۱۳۸۹–۱۳۹۰
+    company: شرکت مهندسین مشاور مترا
+    details: |
+      طراحی، تهیه، نصب، راه‌اندازی و تحویل سیستم‌های علائم برقی و کنترل ترافیک مرکزی (CTC)
+      محور تهران–جنوب (علائم راه‌آهن). سرپرست محور LC1 تهران–اراک.
+    technologies_used: |
+      ILM681 Electronic Interlock System (Maharan), ATX351 ATP/ATC/ATO Systems, SMC782 Centralized Traffic Control (CTC), ...
+
+  - role: سرپرست برق
+    time: ۱۳۸۵–۱۳۸۷
+    company: شرکت مهندسی پیشتازان صنعت برق سپاهان
+    details: |
+      مهندس برق و مدیر پروژه.
+    technologies_used: |
+      Primavera, Power Electronic FPGA Based Systems
+
+  - role: کارآموز تابستانی، پژوهشگر
+    time: تابستان ۱۳۸۷
+    company: مرکز تحقیقات الکترونیک (ERC)، دانشگاه علم و صنعت ایران
+    details: |
+      طراحی مدارات الکترونیکی و PCB.
+    technologies_used: |
+      Matlab, AVR Microcontroller
+
+projects:
+  - title: شبیه‌سازی موتور القایی سنکرون در Matlab
+    link: https://github.com/mhdzli/exitation-and-power-circle-MATLAB7
+    details: |
+      شبیه‌سازی موتور القایی سنکرون با استفاده از دایره‌های تحریک و توان در Matlab.
+
+  - title: شبیه‌سازی اثرات حلقه هیسترزیس در Matlab
+    link: https://github.com/mhdzli/hystersis
+    details: |
+      بررسی اثرات حلقه هیسترزیس بر منحنی جریان در ترانسفورماتورهای قدرت (شبیه‌سازی منحنی جریان با Matlab).
+
+  - title: تقویم فارسی ماهور
+    link: https://addons.thunderbird.net/en-us/thunderbird/addon/mahoor-iranian-date/
+    details: |
+      این افزونه ستون جدیدی با نام «تاریخ فارسی» به فهرست پیام‌های Thunderbird اضافه می‌کند. بازنویسی تاریخ ایرانی برای Thunderbird نسخه ۷۸+ و ۱۱۵+.
+
+  - title: هوش مصنوعی و شبکه عصبی
+    link: "#"
+    details: |
+      آموزش دستیار نوشتاری فارسی.
+
+  - title: سیمرغ
+    link: https://theme.zmim.ir/
+    details: |
+      یک قالب فارسی Jekyll بهینه‌شده برای نوشتن پست‌های دوجهته (BiDi).
+
+# Volunteering
+volunteering:
+  - time: ۱۳۸۱–اکنون
+    role: مدافع نرم‌افزار آزاد
+    company: گروه کاربران لینوکس ایران (لاگ تهران و شیراز)
+    details: |
+      مدافع نرم‌افزار آزاد و مدرس توسعه نرم‌افزار و برنامه‌نویسی

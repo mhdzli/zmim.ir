@@ -1,0 +1,141 @@
+name: Mohammad Zeinali
+support_dark_mode: true
+fork: false
+
+# Sidebar
+contact:
+  email: irzmim@gmail.com
+  github: mhdzli
+  linkedin: zmim
+  phone: 
+  gitlab: 
+  twitter: 
+  odysee: mzeinali
+  mastodon:
+    username: mzeinali
+    instance: https://fosstodon.org
+
+languages:
+  - idiom: English
+  - idiom: Persian
+
+education:
+  - degree: BSc in Electrical Engineering (Control)
+    time: 2002-2007
+    university: 
+      IUST
+      (Iran University of Sience and Technology)
+
+skills:
+  - category: Backend
+    skill: 
+      - Python
+      - PHP
+  - category: Frontend
+    skill:
+      - Svelte
+      - Typescript
+  - category: DevOps
+    skill:
+      - Docker
+      - Kubernetes 
+  - category: Tools
+    skill:
+      - GNU/Linux (Debian, Ubuntu, Arch)
+      - Git
+      - Vim / Neovim
+
+# Profile
+profile:
+  title: IT Manager | System Administrator | Electrical Engineer
+  details:
+    Experienced IT manager, system administrator, and electrical engineer with a background in industrial automation, high-performance computing (HPC), and infrastructure management. Over 15 years of expertise in electrical engineering, project supervision, maintenance management, and IT solutions in energy, oil & gas, and academia. Skilled in Linux/BSD systems, DevOps, HPC workload management, and programming in Python and C, Passionate about open-source technologies, automation, and technical problem-solving.
+
+# Experience
+experience:
+  - role: Senior IT Manager
+    time: 2023-Present
+    company: National Iranian Gas Transmission Company
+    details: |
+      Senior  IT  Manager
+    technologies_used: | 
+      Windows Server, Zabbix, Cisco, Dell Powerstore and Unity, Active Directory, VmWare, ...
+  
+  - role: Instrumentation and Authomation Supervisor
+    time: 2020-2023
+    company: South Pars Gas Company
+    details: |
+      Maintenace management Supervisor, Instrumentation and Authomation Expert, South Pars central powerplant.
+      Installing, configuring, and maintaining precision measuring instruments and control systems, ensuring optimal operational conditions for machinery and equipment. Calibration processes, error diagnosis, and corrective maintenance, including repairing or replacing worn components and optimizing system performance. Reading and analyzing circuit diagrams, managing periodic maintenance plans, and predicting spare part requirements. Adept at monitoring wireless communication systems, developing operational guidelines, and conducting training sessions to enhance equipment efficiency. Working with electronics, mechanics, hydraulics, and pneumatics, contributing to innovation, knowledge management, and workplace safety improvements. Effective teamwork and cross-functional collaboration to optimize industrial processes and system reliability.
+    technologies_used: | 
+      Primavera, Mainta, Siemens TXP DCS, Wartsilla, Siemens V94.2 Gas Turbine, ... 
+
+  - role: Instrumentation and Authomation Supervisor
+    time: 2011-2020
+    company: National Iranian Oil Company
+    details: |
+      I&C Supervisor, 14th refinary phase of South Pars gas field.
+      I&C Supervisor, South Pars central powerplant.
+      Maintenace management Supervisor, South Pars central powerplant.
+      Installing, configuring, and maintaining precision measuring instruments and control systems, ensuring optimal operational conditions for machinery and equipment. Calibration processes, error diagnosis, and corrective maintenance, including repairing or replacing worn components and optimizing system performance. Reading and analyzing circuit diagrams, managing periodic maintenance plans, and predicting spare part requirements. Adept at monitoring wireless communication systems, developing operational guidelines, and conducting training sessions to enhance equipment efficiency. Working with electronics, mechanics, hydraulics, and pneumatics, contributing to innovation, knowledge management, and workplace safety improvements. Effective teamwork and cross-functional collaboration to optimize industrial processes and system reliability.
+    technologies_used: | 
+      Primavera, Mainta, Siemens TXP DCS, Wartsilla, Siemens V94.2 Gas Turbine, Siemens PCS7 DCS, ...
+
+  - role: Railway Signaling Supervisor
+    time: 2010-2011
+    company: Metra Consulting Engineers
+    details: |
+      Design, purchase, installation, commissioning and delivery of electrical signals and CTC
+      system of Tehran - South. (Railway Signaling). Supervisor of LC1 Tehran – Arak.
+    technologies_used: | 
+      ILM681 Electronic Interlock System (Maharan), ATX351 ATP/ATC/ATO Systems, SMC782 Centralized Traffic Control (CTC), ...
+
+  - role: Electrical Supervisor
+    time: 2006-2008
+    company: Pishtazan–e-Sanat-e-bargh-e-Sepahan Engineering Company
+    details: |
+      Electrical Engineer and Project Manager.
+    technologies_used: | 
+      Primavera, Power Electronic FPGA Based Systems
+
+  - role: Summer Intern, Researcher
+    time: Summer 2008
+    company: Electronic  Research  Center  (ERC),  Iran  University  of  Science  and  Technology
+    details: |
+      Electronic circuits and PCB design.
+    technologies_used: | 
+      Matlab, AVR Microcontroller
+
+projects:
+  - title: Matlab simulation of Synchronous induction. 
+    link: https://github.com/mhdzli/exitation-and-power-circle-MATLAB7
+    details: |
+      Synchronous induction motor simulation using exitation and power circles in Matlab.
+
+  - title: Matlab simulation of hysteresis loop effects
+    link: https://github.com/mhdzli/hystersis
+    details: |
+      Investigating of  hysteresis loop effects on current curve in power transformers (simulate the current curve using Matlab).
+
+  - title: Mahoor Persian Date
+    link: https://addons.thunderbird.net/en-us/thunderbird/addon/mahoor-iranian-date/
+    details: |
+      This add-on adds a new column called "Persian Date" in recent versions in message list containing Iranian Date. It is reimplementation of Iranian date for Thunderbird 78+ and 115+.
+
+  - title: Artificial Intelligence and Nural Network
+    link: #
+    details: |
+      Training a Persian writing assistant.
+
+  - title: Simorq
+    link: https://theme.zmim.ir/
+    details: |
+      A Persian Jekyll theme optimized for writing BiDi blog posts.
+
+# Volunteering
+volunteering:
+  - time: 2002-Present
+    role: Free Software Advocate.
+    company: Linux Group Users in Iran (Tehran and Shiraz LUG)
+    details: |
+      Free Software Advocate and Software Development and Computer Programming Teacher

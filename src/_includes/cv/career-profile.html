@@ -1,0 +1,10 @@
+{% if site.active_lang == 'fa' %}{% assign cv = site.data.cv_fa %}{% else %}{% assign cv = site.data.cv %}{% endif %}
+{% assign t = site.data.locales[site.active_lang] %}
+{% assign profile = cv.profile %}
+{% if profile %}
+<section class="cv-career-profile">
+    <h2 class="cv-main-title">{{ t.cv_career_profile }}</h2>
+    <div class="cv-profile-heading">{{ profile.title }}</div>
+    <div class="cv-profile-details">{{ profile.details }}</div>
+</section>
+{% endif %}
