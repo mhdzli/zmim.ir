@@ -143,6 +143,10 @@ body[data-theme="dark"] {
       .menu-link {
         color: $dark-white;
       }
+
+      .lang-switch-btn {
+        color: $dark-white;
+      }
       @include media-query($on-mobile) {
         background-color: $dark-black;
         border-color: $dark-light;

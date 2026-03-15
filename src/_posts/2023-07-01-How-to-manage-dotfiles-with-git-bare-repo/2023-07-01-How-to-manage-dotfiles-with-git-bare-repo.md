@@ -9,6 +9,8 @@ mastodon:
   host: mas.to
   username: mz
   id: 110642412995764976
+lang: fa
+permalink: /dotfiles-git/
 ---
 
 # دات‌فایل‌ها

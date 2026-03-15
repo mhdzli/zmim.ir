@@ -1,0 +1,57 @@
+# Navigation
+home: Home
+archive: Archive
+tags: Tags
+wiki: Wiki
+about: About
+feed: Feed
+
+# Content
+recent_posts: Recent Posts
+secret_notes: Cheat Sheets
+older: Older
+newer: Newer
+search_placeholder: Search
+updated: Updated.
+date_format: "%b %d, %Y"
+
+# 404
+not_found_phrase: "Looks like you're lost"
+go_home: "Go Home"
+
+# Footer
+github: GitHub
+mastodon: Mastodon
+lbry: LBRY
+pixelfed: Pixelfed
+newsletter: Newsletter
+contact: Contact
+
+# License
+license_text: "The posts on this blog are published under the"
+license_name: "Creative Commons Attribution 4.0 International"
+license_href: "http://creativecommons.org/licenses/by/4.0/"
+license_suffix: "license."
+
+# Language switcher
+switch_lang: "فارسی"
+switch_lang_url: /
+
+# Mastodon comments
+comments_heading: Comments
+comments_intro: "You can view the comments for this post on Mastodon"
+comments_intro_here: here
+comments_intro_suffix: ". Click the link below to write a comment."
+comments_write: Write a comment
+comments_view: View comments
+comments_load: Loading comments...
+comments_none: No comments yet
+comments_noscript: "You need to enable JavaScript for this section, or view the"
+comments_noscript_link: original post
+comments_noscript_suffix: on Mastodon
+comments_view_on: View comment on
+comments_date_locale: en-US
+
+# Author
+author_name: Mohammad Zeinali
+author_bio: "A neighbor in the Persian blogosphere — an ordinary familiar face, maybe we once sat next to each other in a taxi. If you prefer the light (dark) theme, click the sun (moon) at the top left <span style=\"color: #51d994; font-size: x-large;\">⇗</span>. My small projects on <a href=\"https://github.com/mhdzli/\" target=\"_blank\" rel=\"noopener\">GitHub</a>."

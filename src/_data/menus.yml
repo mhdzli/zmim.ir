@@ -1,24 +1,30 @@
-- title: <i class="fa fa-home"> <span class="fa-icon-text"> خانه</span> </i>
+- key: home
+  icon: "fa fa-home"
   url: /
   external: false
 
-- title: <i class="fa fa-archive"> <span class="fa-icon-text"> بایگانی</span> </i>
+- key: archive
+  icon: "fa fa-archive"
   url: /archive/
   external: false
 
-- title: <i class="fa fa-tag">  <span class="fa-icon-text"> برچسب‌ها</span> </i>
+- key: tags
+  icon: "fa fa-tag"
   url: /tags/
   external: false
 
-- title: <i class="fab fa-wikipedia-w">  <span class="fa-icon-text"> ویکی</span> </i>
+- key: wiki
+  icon: "fab fa-wikipedia-w"
   url: /wiki/
   external: false
 
-- title: <i class="fa fa-address-card">  <span class="fa-icon-text"> درباره</span> </i>
+- key: about
+  icon: "fa fa-address-card"
   url: /about/
-  external: false # set true if you using external link, see below
+  external: false
 
 # Example:
-# - title: github
-#   url: https://github.com/mhdzli/simorq
+# - key: github
+#   icon: "fab fa-github"
+#   url: https://github.com/mhdzli/simorgh
 #   external: true

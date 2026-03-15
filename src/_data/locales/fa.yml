@@ -1,0 +1,57 @@
+# Navigation
+home: خانه
+archive: بایگانی
+tags: برچسب‌ها
+wiki: ویکی
+about: درباره
+feed: خوراک
+
+# Content
+recent_posts: نوشته‌های تازه
+secret_notes: نکته‌های یواشکی
+older: کهنه‌تر
+newer: نوتر
+search_placeholder: جستجو
+updated: به روز شد.
+date_format: "%d %b، %Y"
+
+# 404
+not_found_phrase: "به نظر میاد گم شدی"
+go_home: "بریم خونه"
+
+# Footer
+github: گیت‌هاب
+mastodon: ماستودون
+lbry: لایبرری
+pixelfed: پیکسلفد
+newsletter: خبرنامه
+contact: تماس
+
+# License
+license_text: "نوشته‌های این وبلاگ با پروانه"
+license_name: "کریتیو کامنز اتریبیوشن ۴.۰ اینترنشنال"
+license_href: "http://creativecommons.org/licenses/by/4.0/deed.fa"
+license_suffix: "منتشر شده‌اند."
+
+# Language switcher
+switch_lang: English
+switch_lang_url: /en/
+
+# Mastodon comments
+comments_heading: دیدگاه‌ها
+comments_intro: "می‌توانید دیدگاه‌های این پست را در ماستودون و"
+comments_intro_here: اینجا
+comments_intro_suffix: "ببینید. برای نوشتن دیدگاه خود روی لینک زیر کلیک کنید."
+comments_write: نوشتن دیدگاه
+comments_view: دیدن دیدگاه‌ها
+comments_load: دریافت دیدگاه‌ها
+comments_none: بدون دیدگاه
+comments_noscript: "برای این بخش می‌باید جاوا اسکریپت را فعال کنید، یا"
+comments_noscript_link: پست اصلی
+comments_noscript_suffix: را در ماستودون ببینید
+comments_view_on: دیدن دیدگاه در
+comments_date_locale: fa-IR
+
+# Author
+author_name: محمد زینلی
+author_bio: "یک همسایه در دنیای وبلاگ‌های فارسی، یک آدم آشنای معمولی که شاید یه روز تو تاکسی کنار هم نشسته باشیم. اگر تم روشن (تاریک) را بیشتر می‌پسندی، روی خورشید (ماه) بالای صفحه سمت چپ <span style=\"color: #51d994; font-size: x-large;\">⇖</span> کلیک کن.<br>پروژه‌های کوچک من در <a href=\"https://github.com/mhdzli/\" target=\"_blank\" rel=\"noopener\">گیتهاب</a>."

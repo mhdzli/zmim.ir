@@ -3,7 +3,7 @@ layout: compress
 ---
 
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html lang="{{ site.active_lang }}"{% if site.active_lang == 'fa' %} dir="rtl"{% endif %}>
 
 {% include header.html %}
 
@@ -59,7 +59,7 @@ layout: compress
                 <time class="date-modify" datetime="{{ page.modified | date_to_xmlschema }}" itemprop="dateModified">
                   {% assign date_format = site.minima.date_format | default: "%d %b، %Y" %}{{ page.modified | date: date_format }}
                 </time>
-                به روز شد.
+                {{ site.data.locales[site.active_lang].updated }}
             </div>
             {% endif %}
             <span hidden itemprop="publisher" itemtype="Person">{{ site.author.name }}</span>
@@ -85,7 +85,7 @@ layout: compress
 
     </main>
 
-    {% if page.next or page.previous %}
+    {% if page.next.lang == site.active_lang or page.previous.lang == site.active_lang %}
       {% include navigation.html %}
     {% endif %}
 

@@ -6,6 +6,12 @@ description: >- # site description
   یادداشت‌های محمد زینلی   <a href="https://github.com/piharpi" target="_blank" rel="noopener">@github</a>.
 lang: fa # default lang
 date_format: fa-IR # fa-IR || en-US -- set to fa-IR for persian dates
+
+# Polyglot settings
+languages: ["fa", "en"]
+default_lang: "fa"
+exclude_from_localization: ["assets", "Gemfile", "Gemfile.lock", "vendor", "scripts"]
+parallel_localization: false
 timezone: Asia/Tehran # set your timezone
 image: assets/img/ogp.png # This image used for Open Graph more info https://ogp.me/
 repo: https://github.com/mhdzli/simorgh # site repo [optional]
@@ -15,7 +21,7 @@ mode: dark # default theme "dark" | "light"
 author:
   name: محمد زینلی # author name
   bio: >- # tell to the world
-    یک همسایه در دنیای وبلاگ‌های فارسی، یک آدم آشنای معمولی که شاید یه روز تو تاکسی کنار هم نشسته باشیم. اگر تم روشن (تاریک) را بیشتر می‌پسندی، روی خورشید (ماه) بالای صفحه سمت راست <span style="color: #51d994; font-size: x-large;">⇗</span> کلیک کن.
+    یک همسایه در دنیای وبلاگ‌های فارسی، یک آدم آشنای معمولی که شاید یه روز تو تاکسی کنار هم نشسته باشیم. اگر تم روشن (تاریک) را بیشتر می‌پسندی، روی خورشید (ماه) بالای صفحه سمت چپ <span style="color: #51d994; font-size: x-large;">⇖</span> کلیک کن.
 
     پروژه‌های کوچک من در
     <a href="https://github.com/mhdzli/" target="_blank" rel="noopener">گیتهاب</a>.
@@ -64,10 +70,12 @@ jekyll_compose:
     modified:
     tags: []
     description:
+    lang: fa
   draft_default_front_matter:
     modified:
     tags: []
     description:
+    lang: fa
 
 # Homepage limit posts
 number_of_posts: 5
@@ -101,6 +109,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-postfiles
   - jekyll-toc
+  - jekyll-polyglot
 
 # TOC Settings
 toc:

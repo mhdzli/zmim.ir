@@ -1,65 +1,54 @@
 <footer class="footer">
-<!--
-  <a class="footer_item" href="/thanks">سپاس</a>
--->
+  {% assign t = site.data.locales[site.active_lang] %}
   {% if site.author.twitter %}
     <a class="footer item" href="https://twitter.com/{{ site.author.twitter }}" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-twitter-square"></i>
-	توئیت‌ها
+      <i class="fab fa-twitter-square"></i> {{ t.twitter | default: "Twitter" }}
     </a>
   {% endif %}
 
   {% if site.author.github %}
-    <a class="footer item" href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener noreferrer" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-github"></i>
-	گیت‌هاب
+    <a class="footer item" href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-github"></i> {{ t.github }}
     </a>
   {% endif %}
-  
+
   {% if site.author.mastodon.first %}
     <a class="footer item" href="{{ site.author.mastodon.first }}" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-mastodon"></i>
-	mastodon
+      <i class="fab fa-mastodon"></i> mastodon
     </a>
   {% endif %}
 
   {% if site.author.mastodon.second %}
     <a class="footer item" href="{{ site.author.mastodon.second }}" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-mastodon"></i>
-	ماستودون
+      <i class="fab fa-mastodon"></i> {{ t.mastodon }}
     </a>
   {% endif %}
 
   {% if site.author.lbry %}
     <a class="footer item" href="{{ site.author.lbry }}" target="_blank" rel="noopener noreferrer">
-        <i class="fa  fa-video"></i>
-	لایبرری
+      <i class="fa fa-video"></i> {{ t.lbry }}
     </a>
   {% endif %}
 
   {% if site.author.pixelfed %}
     <a class="footer item" href="{{ site.author.pixelfed }}" target="_blank" rel="noopener noreferrer">
-        <i class="fa  fa-camera"></i>
-	پیکسلفد
+      <i class="fa fa-camera"></i> {{ t.pixelfed }}
     </a>
   {% endif %}
 
   {% if site.feedburner_id %}
     <a class="footer item" href="https://feedburner.google.com/fb/a/mailverify?uri={{ site.feedburner_id }}&amp;loc=en_US" target="_blank" rel="noopener noreferrer">
-	<i class="fa fa-rss"></i>
-	خبرنامه
+      <i class="fa fa-rss"></i> {{ t.newsletter }}
     </a>
   {% else %}
     <a class="footer item" href="/feed.xml">
-        <i class="fa fa-rss"></i>
-	خوراک
+      <i class="fa fa-rss"></i> {{ t.feed }}
     </a>
   {% endif %}
-      
+
   {% if site.author.email %}
     <a class="footer item" href="mailto:{{ site.author.email }}">
-	<i class="fa fa-envelope-open"></i>
-	تماس
+      <i class="fa fa-envelope-open"></i> {{ t.contact }}
     </a>
   {% endif %}
 <!--

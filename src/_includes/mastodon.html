@@ -1,11 +1,12 @@
 <div class="page-content">
-  <h2>دیدگاه‌ها</h2>
-  <p>می‌توانید دیدگاه‌های این پست را در ماستودون و<a class="link" href="https://{{ page.mastodon.host }}/@{{ page.mastodon.username }}/{{ page.mastodon.id }}" target="_blank" rel="noopener noreferrer"> اینجا </a>ببینید. برای نوشتن دیدگاه خود روی لینک زیر کلیک کنید.</p>
-  <p><a class="button" href="https://{{ page.mastodon.host }}/@{{ page.mastodon.username }}/{{ page.mastodon.id }}" target="_blank" rel="noopener noreferrer">نوشتن دیدگاه‌</a></p>
+  {% assign t = site.data.locales[site.active_lang] %}
+  <h2>{{ t.comments_heading }}</h2>
+  <p>{{ t.comments_intro }} <a class="link" href="https://{{ page.mastodon.host }}/@{{ page.mastodon.username }}/{{ page.mastodon.id }}" target="_blank" rel="noopener noreferrer">{{ t.comments_intro_here }}</a> {{ t.comments_intro_suffix }}</p>
+  <p><a class="button" href="https://{{ page.mastodon.host }}/@{{ page.mastodon.username }}/{{ page.mastodon.id }}" target="_blank" rel="noopener noreferrer">{{ t.comments_write }}</a></p>
   <p></p>
-  <p id="mastodon-comments-list"><a id="load-comment" class="button">دیدن دیدگاه‌ها</a></p>
+  <p id="mastodon-comments-list"><a id="load-comment" class="button">{{ t.comments_view }}</a></p>
   <div id="comments-wrapper">
-    <noscript><p>برای این بخش می‌باید جاوا اسکریپت را فعال کنید، یا <a href="https://{{ page.mastodon.host }}/@{{ page.mastodon.username }}/{{ page.mastodon.id }}" target="_blank" rel="noopener noreferrer">پست اصلی</a> را در ماستودون ببینید</p></noscript>
+    <noscript><p>{{ t.comments_noscript }} <a href="https://{{ page.mastodon.host }}/@{{ page.mastodon.username }}/{{ page.mastodon.id }}" target="_blank" rel="noopener noreferrer">{{ t.comments_noscript_link }}</a> {{ t.comments_noscript_suffix }}</p></noscript>
   </div>
   <script src="/assets/js/purify.min.js"></script>
   <script type="text/javascript">
@@ -46,7 +47,7 @@
     }
 
     function loadcomments() {
-      document.getElementById("load-comment").innerHTML = "دریافت دیدگاه‌ها";
+      document.getElementById("load-comment").innerHTML = "{{ t.comments_load }}";
       fetch('https://{{ page.mastodon.host }}/api/v1/statuses/{{ page.mastodon.id }}/context')
         .then(function(response) {
           return response.json();
@@ -69,7 +70,7 @@
 
               reply.content = emojify(reply.content, reply.emojis);
 
-              reply.created_at = new Date( reply.created_at ).toLocaleString('fa-IR', {
+              reply.created_at = new Date( reply.created_at ).toLocaleString('{{ t.comments_date_locale }}', {
                 dateStyle: "long",
                 timeStyle: "short",
               });
@@ -93,7 +94,7 @@
                 <span class="instance">${instance}</span>
                 </a>
                 </div>
-                <div title="دیدن دیدگاه در ${ instance }">
+                <div title="{{ t.comments_view_on }} ${ instance }">
                 <a class="date" href="${reply.uri}" target="_blank" rel="external nofollow">
                 ${reply.created_at}
                 </a>
@@ -104,7 +105,7 @@
               document.getElementById('mastodon-comments-list').appendChild(DOMPurify.sanitize(mastodonComment, {'RETURN_DOM_FRAGMENT': true}));
             });
           } else {
-            document.getElementById('mastodon-comments-list').innerHTML = "<p>بدون دیدگاه</p>";
+            document.getElementById('mastodon-comments-list').innerHTML = "<p>{{ t.comments_none }}</p>";
           }
         });
     }

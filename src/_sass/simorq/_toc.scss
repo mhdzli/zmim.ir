@@ -4,6 +4,10 @@
  font-size: 1.5rem;
 }
 
+html[lang="en"] .toc__list:before {
+ content: "What You Will Read:";
+}
+
 .toc__list {
  border: 2px solid $box;
  border-radius: 4px;

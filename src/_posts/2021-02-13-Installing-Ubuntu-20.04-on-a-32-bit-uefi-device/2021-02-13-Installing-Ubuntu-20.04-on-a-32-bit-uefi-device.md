@@ -8,6 +8,8 @@ mastodon:
   host: mas.to
   username: mz
   id: 105723338614674634
+lang: fa
+permalink: /ubuntu-on-tablet/
 ---
 
 # آنچه گذشت

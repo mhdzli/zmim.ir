@@ -8,6 +8,7 @@ mastodon:
   host: mas.to
   username: mz
   id: 105148912382290635
+lang: fa
 ---
 
 در این پست تلاش می‌کنم به بهانه به روزرسانی افزونه [ماهور](https://addons.thunderbird.net/en-us/thunderbird/addon/mahour-iranian-date/){:target="\_blank"}{:rel="noopener noreferrer"} کمی درباره افزونه‌های فایرفاکس و چگونگی ساخت یک افزونه برای فایرفاکس بنویسم.

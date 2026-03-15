@@ -1,4 +1,28 @@
-body {
+html[dir="rtl"] body {
     direction: rtl;
     text-align: right;
+}
+
+html[dir="rtl"] .menu {
+    .nav-controls {
+        float: left;
+        right: auto;
+        left: 8px;
+    }
+
+    .trigger {
+        float: right;
+    }
+
+    @media screen and (max-width: 768px) {
+        .nav-controls {
+            right: auto;
+            left: 10px;
+        }
+
+        .menu-icon {
+            left: auto;
+            right: 0;
+        }
+    }
 }

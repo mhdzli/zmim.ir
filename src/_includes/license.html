@@ -1,7 +1,8 @@
+{% assign t = site.data.locales[site.active_lang] %}
 <small id="license">
   <i class="fab fa-creative-commons"></i>
-  نوشته‌های این وبلاگ با پروانه
-  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.fa" target="_blank" rel="noopener noreferrer">
-    کریتیو کامنز اتریبیوشن ۴.۰ اینترنشنال
-  </a>منتشر شده‌اند.
+  {{ t.license_text }}
+  <a rel="license" href="{{ t.license_href }}" target="_blank" rel="noopener noreferrer">
+    {{ t.license_name }}
+  </a> {{ t.license_suffix }}
 </small>

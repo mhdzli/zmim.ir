@@ -15,65 +15,56 @@
         </svg>
       </span>
     </label>
-    <a id="mode">
-      <svg
-        class="mode-sunny"
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-      >
-        <title>LIGHT</title>
-        <path
-          fill="#eaeaea"
-          d="M6.993 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007S14.761 6.993 12 6.993 6.993 9.239 6.993 12zM12 8.993c1.658 0 3.007 1.349 3.007 3.007S13.658 15.007 12 15.007 8.993 13.658 8.993 12 10.342 8.993 12 8.993zM10.998 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2h-3zm17 0h3v2h-3zM4.219 18.363l2.12-2.122 1.415 1.414-2.12 2.122zM16.24 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.342 7.759 4.22 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z"
-        />
-      </svg>
-      <svg
-        class="mode-moon"
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-      >
-        <title>DARK</title>
-        <path
-          d="M20.742 13.045a8.088 8.088 0 0 1-2.077.271c-2.135 0-4.14-.83-5.646-2.336a8.025 8.025 0 0 1-2.064-7.723A1 1 0 0 0 9.73 2.034a10.014 10.014 0 0 0-4.489 2.582c-3.898 3.898-3.898 10.243 0 14.143a9.937 9.937 0 0 0 7.072 2.93 9.93 9.93 0 0 0 7.07-2.929 10.007 10.007 0 0 0 2.583-4.491 1.001 1.001 0 0 0-1.224-1.224zm-2.772 4.301a7.947 7.947 0 0 1-5.656 2.343 7.953 7.953 0 0 1-5.658-2.344c-3.118-3.119-3.118-8.195 0-11.314a7.923 7.923 0 0 1 2.06-1.483 10.027 10.027 0 0 0 2.89 7.848 9.972 9.972 0 0 0 7.848 2.891 8.036 8.036 0 0 1-1.484 2.059z"
-        />
-      </svg>
-    </a>
+    <div class="nav-controls">
+      <a id="mode">
+        <svg
+          class="mode-sunny"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <title>LIGHT</title>
+          <path
+            fill="#eaeaea"
+            d="M6.993 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007S14.761 6.993 12 6.993 6.993 9.239 6.993 12zM12 8.993c1.658 0 3.007 1.349 3.007 3.007S13.658 15.007 12 15.007 8.993 13.658 8.993 12 10.342 8.993 12 8.993zM10.998 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2h-3zm17 0h3v2h-3zM4.219 18.363l2.12-2.122 1.415 1.414-2.12 2.122zM16.24 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.342 7.759 4.22 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z"
+          />
+        </svg>
+        <svg
+          class="mode-moon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+        >
+          <title>DARK</title>
+          <path
+            d="M20.742 13.045a8.088 8.088 0 0 1-2.077.271c-2.135 0-4.14-.83-5.646-2.336a8.025 8.025 0 0 1-2.064-7.723A1 1 0 0 0 9.73 2.034a10.014 10.014 0 0 0-4.489 2.582c-3.898 3.898-3.898 10.243 0 14.143a9.937 9.937 0 0 0 7.072 2.93 9.93 9.93 0 0 0 7.07-2.929 10.007 10.007 0 0 0 2.583-4.491 1.001 1.001 0 0 0-1.224-1.224zm-2.772 4.301a7.947 7.947 0 0 1-5.656 2.343 7.953 7.953 0 0 1-5.658-2.344c-3.118-3.119-3.118-8.195 0-11.314a7.923 7.923 0 0 1 2.06-1.483 10.027 10.027 0 0 0 2.89 7.848 9.972 9.972 0 0 0 7.848 2.891 8.036 8.036 0 0 1-1.484 2.059z"
+          />
+        </svg>
+      </a>
+      {%- if site.active_lang == 'fa' -%}
+        <a class="lang-switch-btn" href="/en{{ page.url }}">En</a>
+      {%- else -%}
+        <a class="lang-switch-btn" href="{{ page.url }}" onclick="event.preventDefault();window.location='{{ page.url }}'">Fa</a>
+      {%- endif -%}
+    </div>
     <div class="trigger">
       <div class="trigger-container">
         {%- assign url = page.url -%}
+        {%- assign t = site.data.locales[site.active_lang] -%}
         {%- assign menus = site.data.menus -%}
-        {%- if menus %}
-          {%- for menu in menus -%} 
-            {%- if url == menu.url -%}
-              <a class="menu-link active" href="{{ menu.url }}">
-                  <b>{{ menu.title }}</b>
-              </a>
-            {%- else -%} 
-              {%- if menu.external -%}
-                <a
-                  class="menu-link"
-                  href="{{ menu.url }}"
-                  target="_blank"
-                  rel="noopener"
-                  ><b>{{ menu.title }}</b></a
-                >
-              {%- else -%}
-                <a class="menu-link" href="{{ menu.url }}">
-                    <b>{{ menu.title }}</b>
-                </a>
-              {%- endif -%} 
-            {%- endif -%} 
-          {%- endfor -%}
-        {%- else -%}
-          <a class="menu-link {% if url == '/' %}active{% endif %}" href="/"><b>خانه</b></a>
-          <a class="menu-link {% if url == '/tags/' %}active{% endif %}" href="/"><b>برچسب‌ها</b></a>
-          <a class="menu-link {% if url == '/wiki/' %}active{% endif %}" href="/"><b>ویکی</b></a>
-          <a class="menu-link {% if url == '/about/' %}active{% endif %}" href="/about"><b>درباره</b></a>
-        {%- endif -%}
+        {%- for menu in menus -%}
+          {%- if menu.external -%}
+            <a class="menu-link" href="{{ menu.url }}" target="_blank" rel="noopener">
+              <b><i class="{{ menu.icon }}"></i> <span class="fa-icon-text">{{ t[menu.key] }}</span></b>
+            </a>
+          {%- else -%}
+            <a class="menu-link{% if url == menu.url %} active{% endif %}" href="{{ menu.url }}">
+              <b><i class="{{ menu.icon }}"></i> <span class="fa-icon-text">{{ t[menu.key] }}</span></b>
+            </a>
+          {%- endif -%}
+        {%- endfor -%}
         <a class="menu-link rss" href="/feed.xml">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +73,7 @@
             viewBox="0 0 512 512"
             fill="#ED812E"
           >
-            <title>خوراک</title>
+            <title>{{ t.feed }}</title>
             <path
               d="M108.56,342.78a60.34,60.34,0,1,0,60.56,60.44A60.63,60.63,0,0,0,108.56,342.78Z"
             />

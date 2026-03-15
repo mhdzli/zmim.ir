@@ -32,6 +32,7 @@ group :jekyll_plugins do
   gem 'jekyll-compose', '~> 0.12.0'
   gem 'jekyll-postfiles', '~> 3.1'
   gem 'jekyll-toc'
+  gem 'jekyll-polyglot'
   gem 'tzinfo', platforms: [:windows, :jruby]
   gem 'tzinfo-data', platforms: [:windows, :jruby]
 end

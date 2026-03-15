@@ -9,6 +9,7 @@ mastodon:
   host: mas.to
   username: mz
   id: 105582586560918183
+lang: fa
 ---
 
 

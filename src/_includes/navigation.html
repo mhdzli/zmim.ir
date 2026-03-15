@@ -1,15 +1,16 @@
 <nav class="post-nav">
-  {% if page.previous %}
+  {% if page.previous and page.previous.lang == site.active_lang %}
   <a
     class="post-nav-item post-nav-prev"
     href="{{ page.previous | relative_url }}"
   >
-    <div class="nav-arrow">کهنه‌تر</div>
+    <div class="nav-arrow">{{ site.data.locales[site.active_lang].older }}</div>
     <span class="post-title">{{ page.previous.title }}</span>
   </a>
-  {% endif %} {% if page.next %}
+  {% endif %}
+  {% if page.next and page.next.lang == site.active_lang %}
   <a class="post-nav-item post-nav-next" href="{{ page.next | relative_url }}">
-    <div class="nav-arrow">نوتر</div>
+    <div class="nav-arrow">{{ site.data.locales[site.active_lang].newer }}</div>
     <span class="post-title">{{ page.next.title }}</span>
   </a>
   {% endif %}
