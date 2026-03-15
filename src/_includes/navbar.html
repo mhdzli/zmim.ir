@@ -44,9 +44,9 @@
         </svg>
       </a>
       {%- if site.active_lang == 'fa' -%}
-        <a class="lang-switch-btn" href="/en{{ page.url }}">En</a>
+        <a id="lang-switch" class="lang-switch-btn" href="/en{{ page.url }}" data-lang="en">En</a>
       {%- else -%}
-        <a class="lang-switch-btn" href="{{ page.url }}" onclick="event.preventDefault();window.location='{{ page.url }}'">Fa</a>
+        <a id="lang-switch" class="lang-switch-btn" href="{{ page.url }}" data-lang="fa">Fa</a>
       {%- endif -%}
     </div>
     <div class="trigger">

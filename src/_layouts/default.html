@@ -20,9 +20,19 @@ layout: compress
         localStorage.setItem("theme", data);
       }
     };
- 
+
     initTheme(localStorage.getItem("theme"));
-    
+
+    const savedLang = localStorage.getItem("lang");
+    if (savedLang) {
+      const isEnglish = window.location.pathname.startsWith("/en");
+      if (savedLang === "en" && !isEnglish) {
+        window.location.replace("/en" + window.location.pathname);
+      } else if (savedLang === "fa" && isEnglish) {
+        window.location.replace(window.location.pathname.replace(/^\/en/, "") || "/");
+      }
+    }
+
     setTimeout(() => body.classList.remove("notransition"), 75);
   </script>
 

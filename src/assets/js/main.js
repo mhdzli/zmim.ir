@@ -19,6 +19,14 @@
     toggleTheme(localStorage.getItem("theme"))
   );
 
+  // Language switch
+  const langBtn = document.getElementById("lang-switch");
+  if (langBtn) {
+    langBtn.addEventListener("click", () => {
+      localStorage.setItem("lang", langBtn.dataset.lang);
+    });
+  }
+
   // Blur the content when the menu is open
   const cbox = document.getElementById("menu-trigger");
 
